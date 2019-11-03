@@ -27,3 +27,5 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 
+" Show line width guide at 81st character
+set colorcolumn=81
