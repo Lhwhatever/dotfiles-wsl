@@ -1,0 +1,101 @@
+// To view the default settings, hold "alt" while clicking on the "Settings" button.
+// For documentation on these settings, see: https://aka.ms/terminal-documentation
+{
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "profiles": [
+        {
+            "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+            "name": "Windows PowerShell",
+            "commandline": "powershell.exe",
+            "hidden": false,
+            "colorScheme": "Monokai Pro",
+            "fontFace": "Iosevka",
+            "useAcrylic": false
+        },
+        {
+            "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+            "name": "cmd",
+            "commandline": "cmd.exe",
+            "colorScheme": "Monokai Pro",
+            "hidden": false,
+            "fontFace": "Iosevka"
+        },
+        {
+            "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+            "hidden": false,
+            "name": "Ubuntu",
+            "source": "Windows.Terminal.Wsl",
+            "backgroundImageOpacity": 0.9,
+            "colorScheme": "Tomorrow Night Bright",
+            "fontFace": "Iosevka"
+        },
+        {
+            "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+            "hidden": false,
+            "name": "Azure Cloud Shell",
+            "source": "Windows.Terminal.Azure",
+            "hidden": true
+        }
+    ],
+    "schemes": [
+        {
+            "name": "Monokai Pro",
+            "background": "#2D2A2E",
+            "foreground": "#FCFCFA",
+            "black": "#403E41",
+            "red": "#FF6188",
+            "green": "#A9DC76",
+            "yellow": "#FFD866",
+            "blue": "#FC9867",
+            "magenta": "#AB9DF2",
+            "cyan": "#78DCE8",
+            "white": "#FCFCFA",
+            "brightBlack": "#727072",
+            "brightRed": "#FF6188",
+            "brightGreen": "#A9DC76",
+            "brightYellow": "#FFD866",
+            "brightBlue": "#FC9867",
+            "brightMagenta": "#AB9DF2",
+            "brightCyan": "#78DCE8",
+            "brightWhite": "#FCFCFA"
+        },
+        {
+            "name": "Tomorrow Night Bright",
+            "background": "#000000",
+            "foreground": "#eaeaea",
+            "black": "#000000",
+            "red": "#d54e53",
+            "green": "#b9ca4a",
+            "yellow": "#e6c547",
+            "blue": "#7aa6da",
+            "magenta": "#c397d8",
+            "cyan": "#70c0ba",
+            "white": "#eaeaea",
+            "brightBlack": "#666666",
+            "brightRed": "#ff3334",
+            "brightGreen": "#9ec400",
+            "brightYellow": "#e7c547",
+            "brightBlue": "#7aa6da",
+            "brightMagenta": "#b77ee0",
+            "brightCyan": "#54ced6",
+            "brightWhite": "#ffffff"
+        }
+    ],
+    // Add any keybinding overrides to this array.
+    // To unbind a default keybinding, set the command to "unbound"
+    "keybindings": [
+        {
+            "command": "closeTab",
+            "keys": [
+                "ctrl+shift+w"
+            ]
+        },
+        {
+            "command": "openNewTabDropdown",
+            "keys": [
+                "ctrl+t"
+            ]
+        }
+    ]
+}
