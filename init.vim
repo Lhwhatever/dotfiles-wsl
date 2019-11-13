@@ -47,3 +47,5 @@ let g:netrw_liststyle = 3       " tree style
 let g:netrw_banner = 0          " remove banner
 let g:netrw_list_hide = '.git'  " hide .git folders
 
+" enable transparent background
+hi Normal guibg=NONE ctermbg=NONE
