@@ -9,6 +9,12 @@ Plug 'edkolev/tmuxline.vim'
 
 " Navigation
 Plug 'tpope/vim-vinegar'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Editing
+Plug 'tpope/vim-surround'
+Plug 'bkad/CamelCaseMotion'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -27,6 +33,9 @@ let g:airline_theme='molokai'
 
 " Enable line numbers
 set number
+
+" Filetype plugins
+filetype plugin indent on
 
 " Use clipboard instead of registers for copy-paste operations
 set clipboard+=unnamedplus
@@ -49,3 +58,8 @@ let g:netrw_list_hide = '.git'  " hide .git folders
 
 " enable transparent background
 hi Normal guibg=NONE ctermbg=NONE
+
+" things to make coc.nvim behave better
+set cmdheight=2
+set updatetime=300
+
