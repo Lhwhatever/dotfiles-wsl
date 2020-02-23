@@ -14,7 +14,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Editing
 Plug 'tpope/vim-surround'
 Plug 'bkad/CamelCaseMotion'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'SirVer/ultisnips', { 'on': [] }
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -38,7 +39,7 @@ set number
 filetype plugin indent on
 
 " Use clipboard instead of registers for copy-paste operations
-set clipboard+=unnamedplus
+"set clipboard+=unnamedplus
 
 " Tab/spaces settings
 set shiftwidth=4
@@ -46,7 +47,7 @@ set tabstop=4
 set expandtab
 
 " Show line width guide at 81st character
-set colorcolumn=81
+set colorcolumn=
 
 " netrw settings
 let g:netrw_browse_split = 4    " open in previous window
@@ -62,4 +63,8 @@ hi Normal guibg=NONE ctermbg=NONE
 " things to make coc.nvim behave better
 set cmdheight=2
 set updatetime=300
+
+" Python settings
+let g:python_host_prog = '/usr/bin/python2'
+let g:ptyhon3_host_prog = '/usr/bin/python3'
 
