@@ -23,6 +23,9 @@ Plug 'tpope/vim-fugitive'
 " C++
 Plug 'bfrg/vim-cpp-modern'
 
+" LaTeX
+Plug 'lervag/vimtex'
+
 call plug#end()
 
 " Color schemes
@@ -66,5 +69,18 @@ set updatetime=300
 
 " Python settings
 let g:python_host_prog = '/usr/bin/python2'
-let g:ptyhon3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 
+" Git settings
+if has('nvim')
+    let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+endif
+
+autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+
+" VimTeX settings
+let g:vimtex_compiler_progname = 'nvr'
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
+set conceallevel=1
+let g:tex_conceal = 'abdmg'
