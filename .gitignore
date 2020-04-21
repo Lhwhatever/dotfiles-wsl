@@ -1,3 +1,6 @@
 nvim/.netrwhist
 nvim/autoload/**
+nvim/apt_pkg.so
+nvim/win32yank
 
+**/__pycache__/**
