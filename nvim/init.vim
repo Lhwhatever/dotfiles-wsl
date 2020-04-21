@@ -14,7 +14,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Editing
 Plug 'tpope/vim-surround'
 Plug 'bkad/CamelCaseMotion'
-Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " Git
@@ -27,6 +27,9 @@ Plug 'bfrg/vim-cpp-modern'
 if has('win32')
     Plug 'lervag/vimtex'
 endif
+
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 call plug#end()
 
@@ -73,9 +76,9 @@ set updatetime=300
 " Python settings
 if has('unix')
     let g:python_host_prog = '/usr/bin/python2'
-    let g:python3_host_prog = '/usr/bin/python3'
+    let g:python3_host_prog = '~/.pyenv/versions/py3nvim/bin/python'
 elseif has('win32')
-    let g:python3_host_prog = '%AppData%/Local/Programs/Python/Python38/python'
+    let g:python3_host_prog = 'C:\Users\ultim\AppData\Local\Programs\Python\Python38\python.exe'
 endif
 
 " Git settings
@@ -84,13 +87,18 @@ if has('unix') && has('nvim')
     autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
 endif
 
+" UltiSnips settings
+let g:UltiSnipsSnippetDirectories=['UltiSnips', 'lhsnips']
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+
 " Win32 settings
 if has('win32')
     " VimTeX settings
     let g:tex_flavor = 'latex'
-    set conceallevel=1
-    let g:tex_conceal = 'abdmg'
     let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
     let g:vimtex_view_general_viewer_options = '@pdf'
     let g:vimtex_view_general_options_latexmk = ''
+    let g:latex_indent_enabled = 0
 endif
