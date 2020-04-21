@@ -1,0 +1,79 @@
+snippet template "basic template"
+\\documentclass[12pt, a4paper, twoside]{$1}
+\\usepackage[utf8]{inputenc}
+\\usepackage{datetime2}
+
+\\title{$2 \\\\ \\large $3}
+\\author{$4}
+\\date{\\today}
+\\raggedbottom
+
+$5
+
+\\begin{document}
+\\begin{titlepage}
+\\maketitle
+\\end{titlepage}
+
+$0
+\\end{document}
+endsnippet
+
+snippet ', ?\.\.\.' "ellipsis (commas)" irA
+, \\dotsc
+endsnippet
+
+snippet mathtemp "math template"
+% Maths Ingredients
+\\usepackage{amsmath}
+\\usepackage{amsfonts}
+\\usepackage{amssymb}
+
+\\newcommand*\\dif{\\mathop{}\\!\\mathrm{d}}
+\\newcommand*\\rept[1]{\\mathrm{Re}\\left(#1\\right)}
+\\newcommand*\\impt[1]{\\mathrm{Im}\\left(#1\\right)}
+\\newcommand*\\deriv[3][]{\\dif^{#1} #2}{\\dif #3^{#1}}
+endsnippet
+
+
+snippet 'h0(\*?)' "chapter" wr
+\\chapter`!p snip.rv = match.group(1)`{$1}
+$0
+endsnippet
+
+snippet 'h1(\*?)' "section" wr
+\\section`!p snip.rv = match.group(1)`{$1}
+$0
+endsnippet
+
+snippet 'h2(\*?)' "subsection" wr
+\\subsection`!p snip.rv = match.group(1)`{$1}
+$0
+endsnippet
+
+snippet 'h3(\*?)' "subsubsection" wr
+\\subsubsection`!p snip.rv = match.group(1)`{$1}
+$0
+endsnippet
+
+
+snippet 'descr' "description environment" wr
+\\begin{description}
+	\\item[$1] $2
+\\end{description}
+$0
+endsnippet
+
+snippet 'itmi' "itemize environment" wr
+\\begin{itemize}
+	\\item $1
+\\end{itemize}
+$0
+endsnippet
+
+snippet 'enum' "enumerate environment" wr
+\\begin{enumerate}
+	\\item $1
+\\end{enumerate}
+$0
+endsnippet
