@@ -1,0 +1,199 @@
+global !p
+from sniptex import *
+endglobal
+
+snippet \[ "display math mode" bA
+\\[ $1 \\]$0
+endsnippet
+
+context "math()"
+snippet txt "\text{...}" wA
+\\text{$1}$0
+endsnippet
+
+context "math()"
+snippet Let "\text{Let }" bA
+\\text{Let } $0
+endsnippet
+
+context "math()"
+snippet intt "\intertext{...}" bA
+\\intertext{$1}
+$0
+endsnippet
+
+context "math()"
+snippet abs "|...|" wA
+\\left|$1\\right|$0
+endsnippet
+
+#########################
+# Subscript/superscript
+#########################
+context "math()"
+snippet '([-)\]}|.A-Za-z0-9])\^([-.A-Za-z0-9][.A-Za-z0-9])' "auto wrap superscript" rA
+`!p snip.rv = match.group(1) + "^{" + match.group(2)`$1}$0
+endsnippet
+
+context "math()"
+snippet ' inv' "inverse" A
+^{-1}
+endsnippet
+
+context "math()"
+snippet '([-)\]}|.A-Za-z0-9])_([-.A-Za-z0-9][.A-Za-z0-9])' "auto wrap subscript" rA
+`!p snip.rv = match.group(1) + "_{" + match.group(2)`$1}$0
+endsnippet
+
+#############
+# Fractions
+#############
+priority 1
+context "math()"
+snippet // "fraction" iA
+\\frac{$1}{$2} $0
+endsnippet 
+
+priority 5
+context "math()"
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{.*\}|[A-Za-z0-9]))*)//' "fraction (symbolic)" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+priority 1000
+context "math()"
+snippet '^.*\)//' "() fraction" irA
+`!p
+stripped = match.string[:-2]
+depth = 0
+i = len(stripped) - 1
+while True:
+	if stripped[i] == ')': depth += 1
+	if stripped[i] == '(': depth -= 1
+	if depth == 0: break
+	i -= 1
+snip.rv = stripped[0:i] + r"\frac{" + stripped[i+1:-1] + "}"
+`{$1}$0
+endsnippet
+
+#############
+# Brackets
+#############
+context "math()"
+snippet '^.*[)\]]lr' "\left \right" wrA
+`!p
+closing = match.string[-3]
+opening = {')': '(', ']': '['}[closing]
+stripped = match.string[:-3]
+depth = 1
+i = len(stripped) - 1
+while True:
+	if stripped[i] == closing: depth += 1
+	if stripped[i] == opening: depth -= 1
+	if depth == 0: break
+	i -= 1
+snip.rv = stripped[0:i] + r"\left" + opening + stripped[i+1:] + r"\right" + closing
+`
+endsnippet
+
+context "math()"
+snippet '^.*\\\}lr' "\left \right" wrA
+`!p
+stripped = match.string[:-2]
+depth = 0
+i = len(stripped) - 1
+while True:
+	if stripped[i] == '}':
+		i -= 1
+		if stripped[i - 1] == '\\': depth += 1
+
+	if stripped[i] == '{':
+		i -= 1
+		if stripped[i - 1] == '\\': depth -= 1
+
+	if depth == 0: break
+	i -= 1
+snip.rv = stripped[0:i] + r"\left\{" + stripped[i+1:-3] + r"\right\}"
+`
+endsnippet
+
+
+context "math()"
+snippet 'LL([([|<.]|\\\{)(.*)?RR([)\]|>.]|\\\})' "\left \right" wrA
+`!p
+left = r"\langle" if match.group(1) == '<' else match.group(1)
+middle = match.group(2).split('MM')
+if len(middle) == 2:
+	middle = middle[0] + r"\middle" + middle[1]
+else:
+	middle = middle[0]
+right = r"\rangle" if match.group(3) == '>' else match.group(3)
+snip.rv = r"\left" + left + middle + r"\right" + right
+`
+endsnippet
+
+#############
+# Radicals
+#############
+priority 1
+context "math()"
+snippet root "root" wA
+\\sqrt[$1]{$2} $0
+endsnippet
+
+context "math()"
+snippet '(?<!\\)sqrt' "square root" wrA
+\\sqrt{$1} $0
+endsnippet
+
+
+##################
+# Differentiation
+##################
+context "math()"
+snippet d/d "derivative" i
+\\deriv{}{$1} $0
+endsnippet
+
+context "math()"
+snippet 'd(\d+)/d' "derivative" wr
+\\deriv[`!p snip.rv = match.group(1)`]{}{$1} $0
+endsnippet
+
+context "math()"
+snippet 'd(\d*)([A-Za-z]||\\[A-Za-z]+)?/d([A-Za-z]|\\[A-Za-z]+)' "derivative" wrA
+\\deriv[`!p
+top = match.group(2) or ''
+snip.rv = match.group(1) + ']{' + top + '}{' + match.group(3)
+`}
+endsnippet
+
+context "math()"
+snippet 'd([A-Za-z]|\\[A-Za-z]+)' "differential" wr
+\\dif `!p snip.rv = match.group(1)`
+endsnippet
+
+################
+# Environments
+################
+snippet 'ali(n|\*)' "align environment" br
+\\begin{align`!p snip.rv = '*' if match.group(1) == '*' else ''`}
+	$1
+\\end{align`!p snip.rv = '*' if match.group(1) == '*' else ''`}
+$0
+endsnippet
+
+snippet 'eqn(n|\*)' "equation environment" br
+\\begin{equation`!p snip.rv = '*' if match.group(1) == '*' else ''`}
+	$1
+\\end{equation`!p snip.rv = '*' if match.group(1) == '*' else ''`}
+$0
+endsnippet
+
+#############
+# Ellipses
+#############
+context "math()"
+snippet '(\+|\-|\*|\\[A-Za-z]+) ?\.{3}' "binary operator ellipsis" wrA
+`!p snip.rv = match.group(1)` `!p snip.rv = r'\dotsm' if match.group(1) == r'\cdot' else r'\dotsb'`
+endsnippet

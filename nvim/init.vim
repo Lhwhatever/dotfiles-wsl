@@ -44,11 +44,15 @@ let g:airline_theme='monokai_tasty'
 " Enable line numbers
 set number
 
+" Split to right/below
+set splitright
+set splitbelow
+
 " Filetype plugins
 filetype plugin indent on
 
 " Use clipboard instead of registers for copy-paste operations
-"set clipboard+=unnamedplus
+set clipboard+=unnamedplus
 
 " Tab/spaces settings
 set shiftwidth=4
@@ -101,4 +105,20 @@ if has('win32')
     let g:vimtex_view_general_viewer_options = '@pdf'
     let g:vimtex_view_general_options_latexmk = ''
     let g:latex_indent_enabled = 0
+
+    func CreateSubTexFile(parent, child)
+python3 << endpython
+import os, vim
+relpath = os.path.relpath(vim.eval('a:parent'), vim.eval('a:child')).replace('\\', '/')
+endpython
+        let l:subfile_content = [
+                \'\documentclass[' . py3eval('relpath') . ']{subfiles}',
+                \'\begin{document}',
+                \'',
+                \'\end{document}'
+                \]
+        call writefile(l:subfile_content, a:child, 'S')
+        execute 'bo vs +3' a:child
+    endfunc
+
 endif

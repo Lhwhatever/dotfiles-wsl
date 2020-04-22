@@ -2,14 +2,26 @@ snippet template "basic template"
 \\documentclass[12pt, a4paper, twoside]{$1}
 \\usepackage[utf8]{inputenc}
 \\usepackage{datetime2}
+\\usepackage{graphicx}
+\\graphicspath{ {./img/} }
 
 \\title{$2 \\\\ \\large $3}
 \\author{$4}
 \\date{\\today}
 \\raggedbottom
 
+\\usepackage{import}
+\\usepackage{xifthen}
+\\usepackage{pdfpages}
+\\usepackage{transparent}
+
+\\newcommand{\\incfig}[1]{
+	\\import{./img/}{#1.pdf_tex}
+}
+
 $5
 
+\\begin{subfiles}
 \\begin{document}
 \\begin{titlepage}
 \\maketitle

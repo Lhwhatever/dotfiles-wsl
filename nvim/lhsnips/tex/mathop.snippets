@@ -1,0 +1,48 @@
+global !p
+from sniptex import *
+endglobal
+
+context "math()"
+snippet . "centre dot" w
+\\cdot
+endsnippet
+
+context "math()"
+snippet * "cross" w
+\\times
+endsnippet
+
+context "math()"
+snippet union "union" wA
+\\cup
+endsnippet
+
+context "math()"
+snippet xsect "intersect" wA
+\\cap
+endsnippet
+
+context "math()"
+snippet => "implies" Aw
+\\implies
+endsnippet
+
+context "math()"
+snippet <=> "iff" Aw
+\\iff
+endsnippet
+
+context "math()"
+snippet '(?<!\\)to|->' "to" wrA
+\\to
+endsnippet
+
+context "math()"
+snippet '(?<!\\)in' "in" wr
+\\in
+endsnippet
+
+context "math()"
+snippet '~' "tilde" wA
+\\sim
+endsnippet

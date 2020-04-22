@@ -1,0 +1,79 @@
+global !p
+from sniptex import *
+opmap = {'sum': 'sum', 'prod': 'prod', 'unn': 'bigcup', 'xsc': 'bigcap'}
+endglobal
+
+context "math()"
+snippet lim "limit" w
+\\lim_{$1 \to $2} $0
+endsnippet
+
+context "math()"
+snippet '(sum|prod|unn|xsc)' "sum" wA
+\\`!p snip.rv = opmap[match.group(1)]`
+endsnippet
+
+context "math()"
+snippet '(sum|prod|unn|xsc) (.+) fr' "big operator from (...) to (...)" rA
+\\`!p snip.rv = opmap[match.group(1)]`_{$1 = $2}^{$3} `!p snip.rv = match.group(2)` $0
+endsnippet
+
+context "math()"
+snippet '(sum|prod|unn|xsc) (.+) for' "big operator for (...) in (...)" rA
+\\`!p snip.rv = opmap[match.group(1)]`_{$1 \in $2} `!p snip.rv = match.group(2)` $0
+endsnippet
+
+context "math()"
+snippet antid "antiderivative" wA
+\\int $1 \\dif $2 $0
+endsnippet
+
+context "math()"
+snippet anti2d "2nd antiderivative" wA
+\\iint $1 \\dif$2 $0
+endsnippet
+
+context "math()"
+snippet anti3d "3rd antiderivative" wA
+\\iiint $1 \\dif$2 $0
+endsnippet
+
+context "math()"
+snippet intl "definite integral" wA
+\\int_{$1}^{$2} $3 \\dif $4 $0
+endsnippet
+
+context "math()"
+snippet int2l "definite double integral" wA
+\\iint_{$1}^{$2} $3 \\dif$4 $0
+endsnippet
+
+context "math()"
+snippet int3l "definite triple integral" wA
+\\iiint_{$1}^{$2} $3 \\dif$4 $0
+endsnippet
+
+context "math()"
+snippet intd "line integral" wA
+\\int_{$1} $2 \\dif$3 $0
+endsnippet
+
+context "math()"
+snippet int2d "area integral" wA
+\\iint_{$1} $2 \\dif$3 $0
+endsnippet
+
+context "math()"
+snippet int3d "volume integral" wA
+\\iiint_{$1} $2 \\dif$3 $0
+endsnippet
+
+context "math()"
+snippet into "contour integral" wA
+\\oint_{$1} $2 \\dif $3 $0
+endsnippet
+
+context "math()"
+snippet int2o "double countour integral" wA
+\\oiint_{$1} $2 \\dif $3 $0
+endsnippet
