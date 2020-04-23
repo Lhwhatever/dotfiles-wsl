@@ -109,15 +109,20 @@ if has('win32')
     func CreateSubTexFile(parent, child)
 python3 << endpython
 import os, vim
-relpath = os.path.relpath(vim.eval('a:parent'), vim.eval('a:child')).replace('\\', '/')
+child_path = vim.eval('a:child')
+rel_path = os.path.relpath(vim.eval('a:parent'), child_path).replace('\\', '/')
+content = '\n'.join((
+    r"\documentclass[{}]{{subfiles}}".format(rel_path),
+    r"\begin{document}",
+    '',
+    r"\end{document}"
+))
+
+with open(child_path, 'w') as f:
+    f.write(content)
+
 endpython
-        let l:subfile_content = [
-                \'\documentclass[' . py3eval('relpath') . ']{subfiles}',
-                \'\begin{document}',
-                \'',
-                \'\end{document}'
-                \]
-        call writefile(l:subfile_content, a:child, 'S')
+
         execute 'bo vs +3' a:child
     endfunc
 
