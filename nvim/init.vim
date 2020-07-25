@@ -80,7 +80,7 @@ set updatetime=300
 " Python settings
 if has('unix')
     let g:python_host_prog = '/usr/bin/python2'
-    let g:python3_host_prog = '~/.pyenv/versions/py3nvim/bin/python'
+    let g:python3_host_prog = '~/.pynvim/bin/python3'
 elseif has('win32')
     let g:python3_host_prog = 'C:\Users\ultim\AppData\Local\Programs\Python\Python38\python.exe'
 endif
@@ -104,7 +104,7 @@ if has('win32')
     let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
     let g:vimtex_view_general_viewer_options = '@pdf'
     let g:vimtex_view_general_options_latexmk = ''
-    let g:latex_indent_enabled = 0
+    let g:vimtex_indent_on_ampersands = 0
 
     func CreateSubTexFile(parent, child)
 python3 << endpython
