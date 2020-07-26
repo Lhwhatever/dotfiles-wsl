@@ -28,9 +28,17 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 
-" things to make coc.nvim behave better
+" Things to make coc.nvim behave better
 set cmdheight=2
 set updatetime=300
+
+" Preserve last position
+augroup preserve_last_position
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup END
+
+" Clear sign column
+hi clear SignColumn
 
 " Python settings
 if has('unix')

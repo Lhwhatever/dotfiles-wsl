@@ -3,4 +3,8 @@ nvim/autoload/**
 nvim/apt_pkg.so
 nvim/win32yank
 
+node_modules/
+tags
+tags.lock
+
 **/__pycache__/**

@@ -19,6 +19,16 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Tags
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'liuchengxu/vista.vim'
+
+" Search
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 
 " Motions
 Plug 'easymotion/vim-easymotion'
