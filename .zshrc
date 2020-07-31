@@ -110,5 +110,6 @@ export NVM_DIR="/home/lhwhatever/.nvm"
 nvm use stable
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$PATH"
+export FORTUNES=~/dotfiles/fortunes
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

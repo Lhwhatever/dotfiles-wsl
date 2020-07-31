@@ -36,6 +36,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'bkad/CamelCaseMotion'
 Plug 'rhysd/accelerated-jk'
 Plug 'terryma/vim-expand-region'
+Plug 't9md/vim-choosewin'
 
 " Assistance
 Plug 'liuchengxu/vim-which-key' 

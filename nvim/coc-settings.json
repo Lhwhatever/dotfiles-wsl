@@ -3,5 +3,11 @@
     "suggest.minTriggerInputLength": 2,
     "tsserver.npm": "npm",
     "diagnostic.displayByAle": true,
+    "python.venvFolders": [
+        "envs",
+        ".pyenv",
+        ".direnv",
+        ".pynvim"
+    ],
     "python.jediPath": "~/.pynvim/lib/python3.8/site-packages/"
 }

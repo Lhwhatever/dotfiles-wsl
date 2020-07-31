@@ -4,8 +4,9 @@ augroup vimrc_defx
     autocmd VimEnter * call s:setup_defx()
 augroup END
 
-nnoremap <silent><Leader>n :call <sid>defx_open()<CR>
-nnoremap <silent><Leader>hf :call <sid>defx_open({ 'find_current_file': v:true })<CR>
+command! OpenExplorer call s:defx_open()
+command! OpenThisInExplorer call s:defx_open({ 'find_current_file': v:true })
+
 let s:default_columns = 'indent:git:mark:icons:filename'
 
 function! s:setup_defx() abort
@@ -27,7 +28,7 @@ endfunction
 function s:get_project_root() abort
     let l:git_root = ''
     let l:path = expand('%:p:h')
-    let l:cmd = systemlist('cd '.l:path.' && git rev-parse --show-toplevel')
+    let l:cmd = systemlist('cd ' . l:path . ' && git rev-parse --show-toplevel')
     if !v:shell_error && !empty(l:cmd)
         let l:git_root = fnamemodify(l:cmd[0], ':p:h')
     endif
