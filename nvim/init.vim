@@ -29,9 +29,11 @@ endpython
 endif
 
 " Go to subconfigs
-runtime! partials/maps.vim
 runtime! partials/theme.vim
+runtime! partials/startify.vim
 runtime! partials/defx.vim
 runtime! partials/which-key.vim
-runtime! partials/sandwich.vim
+runtime! partials/fzf.vim
 runtime! partials/snips.vim
+runtime! partials/maps.vim
+runtime! partials/sandwich.vim

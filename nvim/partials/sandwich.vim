@@ -81,7 +81,7 @@ autocmd FileType python call sandwich#util#addlocal([
             \   'kind': ['add', 'replace'],
             \   'action': ['add'],
             \   'input': ["R'"],
-            \ }
+            \ },
             \ {
             \   'buns': ['[rR]"', '"'],
             \   'regex': 1,
@@ -162,6 +162,6 @@ autocmd FileType python call sandwich#util#addlocal([
             \   'kind': ['delete', 'replace', 'textobj'],
             \   'action': ['delete'],
             \   'input': ['"', 'q'],
-            \ }
-            \ ]
+            \ },
+            \ ])
 
