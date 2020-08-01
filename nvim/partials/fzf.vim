@@ -5,8 +5,8 @@ function! s:get_project_dir() abort
 endfunction
 
 let s:fzf_project_src_cmd_fmt = has('win32') ?
-            \ 'dir %s /a-d /s /b | findstr /V /R /C:"\..*\\\\" | findstr /V /I /R /C:"\\.*cache.*\\\\"' :
-            \ 'find -L %s -type d \( -name ".*" -o -name "*cache*" \) -prune -o -type f -printf "%%P\n"'
+            \ 'dir %s /a-d /s /b | findstr /V /R /C:"\..*\\\\" | findstr /V /I /R /C:"\\.*cache.*\\\\" | findstr /V /I /R /C:"\\node_modules\\\\"' :
+            \ 'find -L %s -type d \( -name ".*" -o -name "*cache*" -o -name "node_modules" \) -prune -o -type f -printf "%%P\n"'
 
 function! s:fzf_project(fullscreen) abort
     let proj_dir = s:get_project_dir()
