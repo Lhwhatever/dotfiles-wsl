@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+ZSH_DISABLE_COMPFIX="true"
 export ZSH="/home/lhwhatever/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -68,7 +69,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting)
+plugins+=(git zsh-syntax-highlighting zsh-nvm zsh-autosuggestions ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,13 +104,8 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs virtualenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs history)
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
-# setup for nvm
-export NVM_DIR="/home/lhwhatever/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm use stable
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$PATH"
 export FORTUNES=~/dotfiles/fortunes
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
