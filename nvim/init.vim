@@ -35,5 +35,7 @@ runtime! partials/defx.vim
 runtime! partials/which-key.vim
 runtime! partials/fzf.vim
 runtime! partials/snips.vim
+runtime! partials/floaterm.vim
+runtime! partials/language.vim
 runtime! partials/maps.vim
 runtime! partials/sandwich.vim

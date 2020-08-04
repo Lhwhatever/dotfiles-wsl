@@ -1,17 +1,33 @@
+augroup whichkeyhidestatus
+    autocmd! FileType which_key
+    autocmd FileType which_key set laststatus=0 noshowmode noruler
+                \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup END
+
 let g:which_key_leader_map = { 'name': '+leader' }
 
-let g:which_key_leader_map.n = [':OpenExplorer', 'open defx']
+let g:which_key_leader_map.n = [':OpenExplorer', 'toggle defx window']
+let g:which_key_leader_map.N = [':OpenThisInExplorer', 'toggle defx window (this file)']
 
 let g:which_key_leader_map.f = {
             \   'name': '+fzf',
             \   'f': [':FilesProject',  'project files'],
-            \   'F': [':FilesProject!', 'project files (fullscreen)'],
-            \   '!': [':FilesProject!', 'project files (fullscreen)'],
             \   'r': [':RgProject',     'ripgrep project'],
             \   'R': [':RgProject!',    'ripgrep project (fullscreen)'],
             \   'b': [':Buffers',       'buffers'],
             \   'B': [':Buffers!',      'buffers (fullscreen)'],
+            \   'l': [':Vista finder',  'find LSP symbols'],
             \ }
+
+let g:which_key_leader_map.F = [':FilesProject!', 'fzf project files (fullscreen)']
+
+let g:which_key_leader_map.b = {
+            \   'name': '+buffers',
+            \   'b': [':Buffers',       'open buffer'],
+            \   'd': [':Bclose',        'close buffer'],
+            \ }
+
+let g:which_key_leader_map.B = [':Buffers!', 'fzf buffers (fullscreen)']
 
 let g:which_key_leader_map['\'] = ['<Plug>(easymotion-prefix)', '+easymotion']
 
@@ -36,12 +52,35 @@ let g:which_key_leader_map.w = {
             \   'L': ['<C-w>L',         'as new top-level split (right)'],
             \ }
 
-let g:which_key_leader_map.h = [':nohl', 'remove highlights']
-let g:which_key_leader_map.T = [':terminal', 'terminal']
+let g:which_key_leader_map.T = [':FloatermShow!', 'show all terminals']
 let g:which_key_leader_map.t = {
-            \   'name': '+tabs',
-            \   'f': ['<C-w>gf',        'goto file at cursor in new tab'],
+            \   'name': '+terminal',
+            \   't': [':FloatermTry shell',     'shell'],
+            \   'p': [':FloatermTry python',    'python REPL'],
+            \   'r': [':FloatermTry ranger',    'ranger'],
+            \   'g': [':FloatermTry lazygit',   'lazygit'],
             \ }
+
+let g:which_key_leader_map.l = {
+            \   'name': '+language',
+            \   'v': [':Vista!! coc',                   'toggle tags window'],
+            \   'p': [':CocList diagnostics',           'diagnose problems'],
+            \   'd': ['<Plug>(coc-definition)',         'go to definition'],
+            \   't': ['<Plug>(coc-type-definition)',    'go to type definition'],
+            \   'i': ['<Plug>(coc-implementation)',     'go to implementation'],
+            \   'r': ['<Plug>(coc-references)',         'go to references'],
+            \ }
+
+let g:which_key_leader_map.a = ['<Plug>(coc-codeaction-selected)', 'run code actions on {motion}']
+let g:which_key_leader_map.aa = ['<Plug>(coc-codeaction-line)', 'run code actions on line']
+let g:which_key_leader_map.A = ['<Plug>(coc-codeaction)', 'run code actions on buffer']
+
+let g:which_key_leader_map.r = {
+            \   'name': '+refactor',
+            \   'n': ['<Plug>(coc-rename)',         'rename symbol']
+            \ }
+
+let g:which_key_leader_map.R = ['<Plug>(coc-refactor)', 'open refactor window']
 
 call which_key#register('\', 'g:which_key_leader_map')
 
