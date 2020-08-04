@@ -9,5 +9,7 @@
         ".direnv",
         ".pynvim"
     ],
-    "python.jediPath": "~/.pynvim/lib/python3.8/site-packages/"
+    "python.jediPath": "~/.pynvim/lib/python3.8/site-packages/",
+    "eslint.autoFixOnSave": true,
+    "prettier.eslintIntegration": true
 }
