@@ -39,7 +39,7 @@ set autoindent
 set smartindent
 
 " Shorter timeoutlen for faster WhichKey
-set timeoutlen=400
+set timeoutlen=800
 
 " Things to make coc.nvim behave better
 set cmdheight=2
