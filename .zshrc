@@ -105,6 +105,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source ~/aliases.sh
 
 # customization for powerlevel10k
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs virtualenv)
