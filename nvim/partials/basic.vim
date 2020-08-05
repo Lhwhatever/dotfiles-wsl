@@ -56,7 +56,7 @@ set conceallevel=0
 
 " Preserve last position
 augroup preserve_last_position
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 augroup END
 
 " Clear sign column
@@ -74,4 +74,19 @@ endif
 if has('unix') && has('nvim')
     let $GIT_EDITOR = 'nvr -cc split --remote-wait'
     autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+endif
+
+" Fix for incorrect terminal colors on nvim 0.4 and earlier
+" Colors are taken from alacritty.yml
+if !has('nvim-0.5')
+    let g:tnb_colors = [
+                \ "#000000", "#d54e53", "#b9ca4a", "#e6c547", 
+                \ "#7aa6da", "#c397d8", "#70c0ba", "#eaeaea",
+                \ "#666666", "#ff3334", "#9ec400", "#e7c547",
+                \ "#7aa6da", "#b77ee0", "#54ced6", "#ffffff",
+                \ ]
+
+    for i in range(0, 15)
+        exe printf('let g:terminal_color_%s = "%s"', i, g:tnb_colors[i])
+    endfor
 endif
