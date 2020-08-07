@@ -25,9 +25,11 @@ else
     " Aesthetics
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'patstockwell/vim-monokai-tasty'
     Plug 'edkolev/tmuxline.vim'
-    Plug 'norcalli/nvim-colorizer.lua'
+
+    " Colorschemes
+    Plug 'patstockwell/vim-monokai-tasty'
+    Plug 'crusoexia/vim-monokai'
 
     " Filesystem Navigation
     Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -61,12 +63,14 @@ else
     " Editing
     Plug 'SirVer/ultisnips'
     Plug 'AndrewRadev/splitjoin.vim'
+    Plug 'jiangmiao/auto-pairs'
 
     " LSP
     Plug 'dense-analysis/ale'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
-    " Languages
+    " Syntax
+    Plug 'norcalli/nvim-colorizer.lua'      " Colors
     Plug 'bfrg/vim-cpp-modern'              " C++
     Plug 'HerringtonDarkholme/yats.vim'     " TypeScript
     Plug 'MaxMEllon/vim-jsx-pretty'         " TSX

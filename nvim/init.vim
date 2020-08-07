@@ -1,5 +1,5 @@
-runtime! partials/plugins.vim
-runtime! partials/basic.vim
+runtime! vimrcs/plugins.vim
+runtime! vimrcs/basic.vim
 
 " Win32 settings
 if has('win32')
@@ -29,13 +29,13 @@ endpython
 endif
 
 " Go to subconfigs
-runtime! partials/theme.vim
-runtime! partials/startify.vim
-runtime! partials/defx.vim
-runtime! partials/which-key.vim
-runtime! partials/fzf.vim
-runtime! partials/snips.vim
-runtime! partials/floaterm.vim
-runtime! partials/language.vim
-runtime! partials/maps.vim
-runtime! partials/sandwich.vim
+runtime! vimrcs/theme.vim
+runtime! vimrcs/startify.vim
+runtime! vimrcs/defx.vim
+runtime! vimrcs/which-key.vim
+runtime! vimrcs/fzf.vim
+runtime! vimrcs/snips.vim
+runtime! vimrcs/floaterm.vim
+runtime! vimrcs/language.vim
+runtime! vimrcs/maps.vim
+runtime! vimrcs/sandwich.vim

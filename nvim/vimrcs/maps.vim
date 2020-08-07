@@ -5,6 +5,10 @@ let g:camelcasemotion_key = '<Space>'
 nnoremap <silent> <Leader> :<C-u>WhichKey '\'<CR>
 nnoremap <silent> <Plug>(easymotion-prefix) :<C-u>WhichKey '\\'<CR>
 
+" Re-source vimrcs
+command! ReSourceRC exe printf('source %s/init.vim', stdpath('config'))
+nnoremap <silent> <leader>S :<C-u>ReSourceRC<CR>
+
 " Sandwich
 let g:operator_sandwich_no_default_key_mappings = 1
 let g:sandwich_no_default_key_mappings = 1
@@ -17,6 +21,11 @@ nmap css <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count
 nmap sa <Plug>(operator-sandwich-add)
 xmap sa <Plug>(operator-sandwich-add)
 omap sa <Plug>(operator-sandwich-g@)
+
+" Fast create matching pairs
+imap <C-s>( <Space><C-o><Plug>(operator-sandwich-add)l)<Delete>
+imap <C-s>(<Space> <Space><C-o><Plug>(operator-sandwich-add)l(<Delete>
+imap <C-s>(<CR> <Space><C-o><Plug>(operator-sandwich-add)l(<Delete><CR><C-o>O
 
 " Change defaults
 nnoremap <silent> x "_dl
@@ -53,10 +62,10 @@ nmap g/ <Plug>(incsearch-easymotion-stay)
 nmap <Plug>(easymotion-prefix)s <Plug>(easymotion-overwin-f2)
 map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
-map <Plug>(easymotion-prefix)^ <Plug>(easymotion-sol-j)
-map <Plug>(easymotion-prefix)g^ <Plug>(easymotion-sol-k)
-map <Plug>(easymotion-prefix)$ <Plug>(easymotion-eol-k)
-map <Plug>(easymotion-prefix)g$ <Plug>(easymotion-eol-j)
+map <Plug>(easymotion-prefix)^ <Plug>(easymotion-sol-k)
+map <Plug>(easymotion-prefix)g^ <Plug>(easymotion-sol-j)
+map <Plug>(easymotion-prefix)$ <Plug>(easymotion-eol-j)
+map <Plug>(easymotion-prefix)g$ <Plug>(easymotion-eol-k)
 map <Plug>(easymotion-prefix)gw <Plug>(easymotion-overwin-w)
 map <Plug>(easymotion-prefix)gg <Plug>(easymotion-overwin-line)
 map <Plug>(easymotion-prefix)<Space> <Plug>(easymotion-jumptoanywhere)
@@ -117,19 +126,7 @@ nnoremap <silent> <Leader>s :SLoad<CR>
 nmap <silent> - <Plug>(choosewin)
 
 " Language
-nmap <silent> <Leader>lf :<C-u>call <SID>try_fix()<CR>
-
-function! s:try_fix() abort
-    for a_filetype in split(&ft, '\.')
-        if has_key(g:ale_fixers, a_filetype)
-            exe "ALEFix"
-            break
-        endif
-    endfor
-
-    exe 'CocCommand eslint.executeAutofix'
-endfunction
-
+nmap <silent> <Leader>lf <Plug>(coc-fix-current)
 nmap <silent> <Leader>lv :<C-u>Vista!! coc<CR>
 nmap <silent> <Leader>fl :<C-u>Vista finder:coc<CR>
 
@@ -139,7 +136,7 @@ inoremap <silent> <expr> <tab>
             \   <SID>check_back_space() ? "\<tab>" : 
             \   coc#refresh()
 
-inoremap <silent> <expr> <C-space> coc#refresh)()
+inoremap <silent> <expr> <C-space> coc#refresh()
 
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -226,7 +223,8 @@ omap ac <Plug>(coc-classobj-a)
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
-command! -nargs=0 Format :call CocAction('format')
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-command! -nargs=0 OrganizeImports :call CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 Format call CocAction('format')
+command! -nargs=? Fold call CocAction('fold', <f-args>)
+command! -nargs=0 OrganizeImports call CocAction('runCommand', 'editor.action.organizeImport')
+
 

@@ -11,6 +11,9 @@ let g:which_key_leader_map = { 'name': '+leader' }
 let g:which_key_leader_map.n = [':OpenExplorer', 'toggle defx window']
 let g:which_key_leader_map.N = [':OpenThisInExplorer', 'toggle defx window (this file)']
 
+let g:which_key_leader_map.s = [':SLoad', 'load startify session']
+let g:which_key_leader_map.S = [':ReSourceRC', 're-source vimrcs']
+
 let g:which_key_leader_map.f = {
             \   'name': '+fzf',
             \   'f': [':FilesProject',  'project files'],
@@ -104,10 +107,10 @@ let g:which_key_easymotion_map = {
             \   'N':  ['<Plug>(easymotion-N)',      'repeat last search backwards'],
             \   'j':  ['<Plug>(easymotion-j)',      'lines below'],
             \   'k':  ['<Plug>(easymotion-k)',      'lines above'],
-            \   '^':  ['<Plug>(easymotion-sol-j)',  'preceding start of lines'],
-            \   'g^': ['<Plug>(easymotion-sol-k)',  'following start of lines'],
-            \   '$':  ['<Plug>(easymotion-eol-k)',  'preceding end of lines'],
-            \   'g$': ['<Plug>(easymotion-eol-j)',  'following end of lines'],
+            \   '^':  ['<Plug>(easymotion-sol-k)',  'preceding start of lines'],
+            \   'g^': ['<Plug>(easymotion-sol-j)',  'following start of lines'],
+            \   '$':  ['<Plug>(easymotion-eol-j)',  'following end of lines'],
+            \   'g$': ['<Plug>(easymotion-eol-k)',  'preceding end of lines'],
             \   's':  ['<Plug>(easymotion-overwin-f2)', 'search 2 chars (overwin)'],
             \   'gw': ['<Plug>(easymotion-overwin-w)', 'start of words (overwin)'],
             \   'gg': ['<Plug>(easymotion-overwin-line)', 'lines (overwin)'],

@@ -1,21 +1,15 @@
 " Setup colorizer
 set termguicolors
-lua require 'colorizer'.setup { '*'; startify = { names = false; }; css = { rgb_fn = true; }; }
-set t_Co=256
-
-" Color schemes
-let g:vim_monokai_tasty_italic = 1
-colorscheme vim-monokai-tasty
-
-" Status Line (vim-airline)
-let g:airline_powerline_fonts = 1
-let g:airline_theme='monokai_tasty'
 
 " Keep multiple buffers open
 set hidden
 
-" Enable line numbers
+" Enable relative line numbers
 set number
+set relativenumber
+
+" Enable indentation-based folding
+set foldmethod=indent
 
 " Split to right/below
 set splitright
@@ -51,16 +45,10 @@ set nowritebackup
 " Tabline displays
 set showtabline=2
 
-" Don't conceal stuff (such as quotes in json files!!!)
-set conceallevel=0
-
 " Preserve last position
 augroup preserve_last_position
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 augroup END
-
-" Clear sign column
-hi clear SignColumn
 
 " Python settings
 if has('unix')
@@ -90,3 +78,17 @@ if !has('nvim-0.5')
         exe printf('let g:terminal_color_%s = "%s"', i, g:tnb_colors[i])
     endfor
 endif
+
+function! s:create_scratch_buffer(help, ...)
+    noswapfile hide enew
+    setlocal buftype=nofile
+    setlocal bufhidden=hide
+    let &filetype = get(a:, 1, 'text')
+    exe 'file scratch-' . &filetype
+    if !a:help
+        call append(0, printf(&commentstring, 'Use :file <filename> to name this buffer.'))
+    endif
+endfunction
+
+" Scratch buffer
+command! -bang -nargs=? Scratch call s:create_scratch_buffer(<bang>0, <f-args>)
