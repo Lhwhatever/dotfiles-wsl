@@ -123,7 +123,10 @@ inoremap <expr> <C-x><C-f> fzf#vim#complete#path('rg --files 2> /dev/null')
 nnoremap <silent> <Leader>s :SLoad<CR>
 
 " ChooseWin
-nmap <silent> - <Plug>(choosewin)
+nmap - <Plug>(choosewin)
+nmap -- <Plug>(choosewin)
+nmap <silent> -s :<C-u>ChooseWinSwap<CR>
+nmap <silent> -S :<C-u>ChooseWinSwapStay<CR>
 
 " Language
 nmap <silent> <Leader>lf <Plug>(coc-fix-current)
