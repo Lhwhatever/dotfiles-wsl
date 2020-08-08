@@ -21,3 +21,5 @@ set signcolumn=yes:1
 hi LineNr guibg=NONE ctermbg=NONE
 hi CursorLineNr guibg=NONE ctermbg=NONE
 
+" transparent fold bg
+hi Folded guibg=NONE ctermbg=NONE
