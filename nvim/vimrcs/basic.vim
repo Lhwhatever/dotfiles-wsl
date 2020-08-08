@@ -60,8 +60,7 @@ endif
 
 " Git settings
 if has('unix') && has('nvim')
-    let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-    autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+    let $GIT_EDITOR = 'nvr --remote-tab-wait'
 endif
 
 " Fix for incorrect terminal colors on nvim 0.4 and earlier
