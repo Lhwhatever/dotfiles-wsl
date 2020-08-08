@@ -64,6 +64,7 @@ else
     Plug 'SirVer/ultisnips'
     Plug 'AndrewRadev/splitjoin.vim'
     Plug 'jiangmiao/auto-pairs'
+    Plug 'mattn/emmet-vim'
 
     " LSP
     Plug 'dense-analysis/ale'

@@ -11,5 +11,9 @@
     ],
     "python.jediPath": "~/.pynvim/lib/python3.8/site-packages/",
     "eslint.autoFixOnSave": true,
-    "prettier.eslintIntegration": true
+    "prettier.eslintIntegration": true,
+    "emmet.includeLanguages": {
+        "typescriptreact": "typescript.tsx",
+        "javascriptreact": "javascript.jsx"
+    }
 }
