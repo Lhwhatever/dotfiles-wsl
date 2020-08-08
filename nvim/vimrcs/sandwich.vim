@@ -19,7 +19,6 @@ let g:sandwich#recipes += [
             \   'buns': ['( ', ' )'],
             \   'nesting': 1,
             \   'match_syntax': 1,
-            \   'kind': ['add', 'replace'],
             \   'action': ['add'],
             \   'input': ['('] 
             \ },
@@ -50,10 +49,19 @@ let g:sandwich#recipes += [
             \   'action': ['delete'],
             \   'input': ['('] 
             \ },
+            \ { 
+            \   'buns': ['^', '$'],
+            \   'nesting': 0,
+            \   'match_syntax': 2,
+            \   'syntax': ['String'],
+            \   'kind': ['add', 'delete', 'textobj'],
+            \   'action': ['add', 'delete'],
+            \   'input': ['^$'] 
+            \ }
             \ ]
 
 " Python
-autocmd FileType python call sandwich#util#addlocal([
+let s:sandwich_recipes_python = [
             \ {
             \   'buns': ['r"', '"'],
             \   'motionwise': ['char', 'block'],
@@ -163,5 +171,46 @@ autocmd FileType python call sandwich#util#addlocal([
             \   'action': ['delete'],
             \   'input': ['"', 'q'],
             \ },
-            \ ])
+            \ ]
 
+let sandwich_recipes_ecmascript = [
+            \ {
+            \   'buns': ['/', '/[gmiyus]*'],
+            \   'regex': 1,
+            \   'motionwise': ['char', 'block'],
+            \   'nesting': 0,
+            \   'expand_range': 0,
+            \   'syntax': ['String'],
+            \   'match_syntax': 2,
+            \   'kind': ['delete', 'replace', 'textobj'],
+            \   'action': ['delete'],
+            \   'input': ['R', '//', '/i', '/g']
+            \ },
+            \ {
+            \   'buns': ['/', '/'],
+            \   'motionwise': ['char', 'block'],
+            \   'kind': ['add', 'replace'],
+            \   'action': ['add'],
+            \   'input': ['R', '//']
+            \ },
+            \ {
+            \   'buns': ['/', '/i'],
+            \   'motionwise': ['char', 'block'],
+            \   'kind': ['add', 'replace'],
+            \   'action': ['add'],
+            \   'input': ['/i']
+            \ },
+            \ {
+            \   'buns': ['/', '/g'],
+            \   'motionwise': ['char', 'block'],
+            \   'kind': ['add', 'replace'],
+            \   'action': ['add'],
+            \   'input': ['/g']
+            \ },
+            \ ]
+
+augroup add_ft_recipes
+    autocmd!
+    autocmd FileType python call sandwich#util#addlocal(sandwich_recipes_python)
+    autocmd FileType javascript,typescript,javascriptreact,typescriptreact call sandwich#util#addlocal(sandwich_recipes_ecmascript)
+augroup END
