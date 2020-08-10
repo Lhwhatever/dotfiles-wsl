@@ -45,6 +45,9 @@ set nowritebackup
 " Tabline displays
 set showtabline=2
 
+" Fly mode for autopairs
+let g:AutoPairsFlyMode = 1
+
 " Preserve last position
 augroup preserve_last_position
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
