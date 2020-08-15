@@ -1,0 +1,17 @@
+{
+    "jsx": {
+        "filters": "jsx, js, html",
+        "profile": "jsx",
+        "snippets": {
+            "rf": "{<React.Fragment>${0}</React.Fragment>}",
+            "cls": "{className={classes.${1}} }",
+            "clsx": "{className={clsx(${1})} }",
+            "clsi": "{import lsx from \"clsx\"\n}",
+            "rx": "{import React from \"react\"\n}",
+            "ustt": "{const [${1:state}, ${2:setState}] = React.useState(${3:initial})\n}",
+            "mkst": "{const useStyles = makeStyles((theme) => ({${1}}))\n}",
+            "usty": "{const classes = useStyles()\n}",
+            "rfc": "{const ${1:Component} = (props: ${2:Props}): JSX.Element => {\n${3:throw new Error('not implemented')}\n}}"
+        }
+    }
+}
