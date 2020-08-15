@@ -115,6 +115,9 @@ VIRTUAL_ENV_DISABLE_PROMPT=1
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$PATH"
 export FORTUNES=~/dotfiles/fortunes
 
+# Vim keybindings
+bindkey -v
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
