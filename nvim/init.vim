@@ -1,5 +1,7 @@
 runtime! vimrcs/plugins.vim
 runtime! vimrcs/basic.vim
+runtime! vimrcs/floaterm.vim
+runtime! vimrcs/floating.vim
 
 " Win32 settings
 if has('win32')
@@ -35,7 +37,6 @@ runtime! vimrcs/defx.vim
 runtime! vimrcs/which-key.vim
 runtime! vimrcs/fzf.vim
 runtime! vimrcs/snips.vim
-runtime! vimrcs/floaterm.vim
 runtime! vimrcs/language.vim
 runtime! vimrcs/maps.vim
 runtime! vimrcs/sandwich.vim

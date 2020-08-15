@@ -109,6 +109,7 @@ nnoremap <silent> <Leader>N :<C-u>OpenThisInExplorer<CR>
 
 " Fuzzy finding
 nnoremap <silent> <Leader>ff :<C-u>FilesProject<CR>
+nnoremap <silent> <C-p> :<C-u>FilesProject<CR>
 nnoremap <silent> <Leader>F :<C-u>FilesProject!<CR>
 nnoremap <silent> <Leader>fr :<C-u>RgProject<CR>
 nnoremap <silent> <Leader>fR :<C-u>RgProject!<CR>

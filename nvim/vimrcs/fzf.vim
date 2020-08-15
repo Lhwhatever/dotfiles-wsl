@@ -1,3 +1,27 @@
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+function! FloatingFZF()
+    let buf = nvim_create_buf(v:false, v:true)
+    call setbufvar(buf, '&signcolumn', 'no')
+
+    let width = float2nr(0.80 * &columns)
+    let height = float2nr(0.80 * &lines)
+
+    let x = float2nr((&columns - width) / 2)
+    let y = float2nr((&lines - height) / 2)
+
+    let opts = {
+                \ 'relative': 'editor',
+                \ 'col': x,
+                \ 'row': y,
+                \ 'width': width,
+                \ 'height': height,
+                \ 'style': 'minimal'
+                \ }
+
+    call CreateFloatingWindow(buf, opts, 'FZF')
+endfunction
+
 let s:get_project_dir_cmd = printf('git rev-parse --show-toplevel 2> %s || printf $PWD', has('win32') ? 'NUL' : '/dev/null')
 
 function! s:get_project_dir() abort
