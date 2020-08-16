@@ -71,7 +71,7 @@ else
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
     " Syntax
-    Plug 'norcalli/nvim-colorizer.lua'      " Colors
+    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
     Plug 'bfrg/vim-cpp-modern'              " C++
     Plug 'HerringtonDarkholme/yats.vim'     " TypeScript
     Plug 'MaxMEllon/vim-jsx-pretty'         " TSX
