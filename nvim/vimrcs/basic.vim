@@ -11,6 +11,9 @@ set relativenumber
 " Enable indentation-based folding
 set foldmethod=indent
 
+" Set starting fold level
+set foldlevelstart=4
+
 " Split to right/below
 set splitright
 set splitbelow
