@@ -105,18 +105,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/aliases.sh
-
-# customization for powerlevel10k
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs virtualenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs history)
-VIRTUAL_ENV_DISABLE_PROMPT=1
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$PATH"
-export FORTUNES=~/dotfiles/fortunes
+[ -f ~/aliases.sh ] && source ~/aliases.sh
 
 # Vim keybindings
 bindkey -v
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$PATH"
+export FORTUNES=~/dotfiles/fortunes
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
