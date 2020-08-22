@@ -5,8 +5,19 @@ augroup vimrc_defx
     autocmd VimEnter * call s:setup_defx()
 augroup END
 
-command! OpenExplorer call s:defx_open()
-command! OpenThisInExplorer call s:defx_open({ 'find_current_file': v:true })
+function! s:get_packages() abort
+    packadd defx.nvim
+    packadd defx-icons
+    packadd defx-git
+endfunction
+
+command! OpenExplorer 
+            \ call s:get_packages() |
+            \ call s:defx_open() 
+
+command! OpenThisInExplorer
+            \ call s:get_packages() |
+            \ call s:defx_open({ 'find_current_file': v:true })
 
 let s:default_columns = 'indent:git:mark:icons:filename'
 

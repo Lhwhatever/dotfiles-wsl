@@ -1,4 +1,4 @@
-" Setup colorizer
+" Colors
 set termguicolors
 
 " Keep multiple buffers open

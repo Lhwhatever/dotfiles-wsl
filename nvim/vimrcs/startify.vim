@@ -1,9 +1,13 @@
 let g:startify_session_persistence = 1
 let g:startify_enable_special = 1
 
-if !empty($FORTUNES)
-    let g:startify_custom_header = startify#pad(systemlist('fortune $FORTUNES'))
-endif
+function! s:setup_startify() abort
+    if !empty($FORTUNES)
+        let g:startify_custom_header = startify#pad(systemlist('fortune $FORTUNES'))
+    endif
+endfunction
+
+call s:setup_startify()
 
 let g:startify_session_before_save = [
             \ 'Defx -close .',

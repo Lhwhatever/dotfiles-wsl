@@ -2,8 +2,8 @@
 let g:camelcasemotion_key = '<Space>'
 
 " WhichKey
-nnoremap <silent> <Leader> :<C-u>WhichKey '\'<CR>
-nnoremap <silent> <Plug>(easymotion-prefix) :<C-u>WhichKey '\\'<CR>
+nnoremap <silent> <Leader> :<C-u>packadd vim-which-key <bar> WhichKey '\'<CR>
+nnoremap <silent> <Plug>(easymotion-prefix) :<C-u>packadd vim-which-key <bar> WhichKey '\\'<CR>
 
 " Re-source vimrcs
 command! ReSourceRC exe printf('source %s/init.vim', stdpath('config'))
@@ -21,11 +21,6 @@ nmap css <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count
 nmap sa <Plug>(operator-sandwich-add)
 xmap sa <Plug>(operator-sandwich-add)
 omap sa <Plug>(operator-sandwich-g@)
-
-" Fast create matching pairs
-imap <C-s>( <Space><C-o><Plug>(operator-sandwich-add)l)<Delete>
-imap <C-s>(<Space> <Space><C-o><Plug>(operator-sandwich-add)l(<Delete>
-imap <C-s>(<CR> <Space><C-o><Plug>(operator-sandwich-add)l(<Delete><CR><C-o>O
 
 " Change defaults
 nnoremap <silent> x "_dl

@@ -1,87 +1,117 @@
-call plug#begin(stdpath('data') . '/plugged')
+call plugpac#begin()
+
+Pack 'k-takata/minpac', { 'type': 'opt' }
+Pack 'tpope/vim-repeat'
+Pack 'machakann/vim-sandwich'
+
+" Motion
+Pack 'bkad/CamelCaseMotion'
+Pack 'rhysd/accelerated-jk'
+Pack 'terryma/vim-expand-region'
+
+" Search
+Pack 'haya14busa/incsearch.vim'
+Pack 'haya14busa/incsearch-fuzzy.vim'
+Pack 'haya14busa/incsearch-easymotion.vim'
+
+" Utility
+Pack 'Yggdroot/indentLine', { 'type': 'opt' }
+
+" Window Management
+Pack 'rbgrouleff/bclose.vim', { 'on': 'Bclose' }
+Pack 'voldikss/vim-floaterm', { 'on': ['FloatermToggle', 'FloatermShow', 'FloatermList', 'FloatermNew'] }
+
+Pack 't9md/vim-choosewin', { 'on': ['<Plug>(choosewin)', 'ChooseWinSwap', 'ChooseWinSwapStay'] }
+
+" Start Screen
+Pack 'mhinz/vim-startify', { 'type': 'opt' }
+
+" Aesthetics
+Pack 'vim-airline/vim-airline', { 'type': 'opt' }
+Pack 'vim-airline/vim-airline-themes', { 'type': 'opt' }
+Pack 'edkolev/tmuxline.vim', { 'type': 'opt' }
+Pack 'patstockwell/vim-monokai-tasty', { 'type': 'opt' }
+Pack 'crusoexia/vim-monokai', { 'type': 'opt' }
+
+" Filesystem Navigation
+Pack 'Shougo/defx.nvim', { 
+            \ 'type': 'opt',
+            \ 'do': ':UpdateRemotePlugins',
+            \ }
+
+Pack 'kristijanhusak/defx-icons', { 'type': 'opt' }
+Pack 'kristijanhusak/defx-git', { 'type': 'opt' }
+
+Pack 'junegunn/fzf', { 'type': 'opt', 'do': { -> fzf#install() } }
+Pack 'junegunn/fzf.vim', { 'type': 'opt' }
+
+" Git
+Pack 'tpope/vim-fugitive', { 'type': 'opt' }
+Pack 'airblade/vim-gitgutter', { 'type': 'opt' }
+
+" Tags
+Pack 'ludovicchabant/vim-gutentags', { 'type': 'opt' }
+Pack 'liuchengxu/vista.vim', { 'type': 'opt' }
+
+Pack 'easymotion/vim-easymotion'
+
+" Assistance
+Pack 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKeyVisual'] }
 
 " Editing
-Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-repeat'
-Plug 'machakann/vim-sandwich'
+Pack 'SirVer/ultisnips', { 'type': 'opt' }
 
-if exists('g:vscode')
-    Plug 'asvetliakov/vim-easymotion'
-else
-    if has('win32')
-        Plug 'lervag/vimtex'
-    endif
+Pack 'AndrewRadev/splitjoin.vim', {
+            \ 'on': ['SplitjoinSplit', 'SplitjoinJoin', '<Plug>(SplitjoinSplit)', '<Plug>(SplitjoinJoin)'],
+            \ }
 
-    " Window Management
-    Plug 'voldikss/vim-floaterm'
-    Plug 't9md/vim-choosewin'
+Pack 'jiangmiao/auto-pairs'
+Pack 'mattn/emmet-vim', {
+            \ 'for': ['html', 'css', 'javascriptreact', 'typescriptreact', 'jsx', 'tsx'],
+            \ }
 
-    " Buffers
-    Plug 'rbgrouleff/bclose.vim'
+" Language
+Pack 'dense-analysis/ale', { 'type': 'opt' }
+Pack 'neoclide/coc.nvim', { 'type': 'opt', 'branch': 'release' }
 
-    " Start Screen
-    Plug 'mhinz/vim-startify'
+" Syntax
+Pack 'rrethy/vim-hexokinase', { 'type': 'opt', 'do': 'make hexokinase' }
 
-    " Aesthetics
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'edkolev/tmuxline.vim'
+Pack 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
 
-    " Colorschemes
-    Plug 'patstockwell/vim-monokai-tasty'
-    Plug 'crusoexia/vim-monokai'
+Pack 'HerringtonDarkholme/yats.vim', { 
+            \ 'for': ['typescript', 'typescriptreact'],
+            \ }
 
-    " Filesystem Navigation
-    Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'kristijanhusak/defx-icons'
-    Plug 'kristijanhusak/defx-git'	
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+Pack 'MaxMEllon/vim-jsx-pretty', { 
+            \ 'for': ['javascriptreact', 'typescriptreact', 'jsx', 'tsx'],
+            \ }
 
-    " Git
-    Plug 'tpope/vim-fugitive'
-    Plug 'airblade/vim-gitgutter'
+Pack 'iamcco/markdown-preview.nvim', {
+            \ 'for': 'markdown',
+            \ 'do': 'cd app & yarn install',
+            \ }
 
-    " Tags
-    Plug 'ludovicchabant/vim-gutentags'
-    Plug 'liuchengxu/vista.vim'
+Pack 'ryanoasis/vim-devicons', { 'type': 'opt' }
 
-    " Search
-    Plug 'haya14busa/incsearch.vim'
-    Plug 'haya14busa/incsearch-fuzzy.vim'
-    Plug 'haya14busa/incsearch-easymotion.vim'
+call plugpac#end()
 
-    " Motions
-    Plug 'easymotion/vim-easymotion'
-    Plug 'bkad/CamelCaseMotion'
-    Plug 'rhysd/accelerated-jk'
-    Plug 'terryma/vim-expand-region'
+packloadall
 
-    " Assistance
-    Plug 'liuchengxu/vim-which-key' 
+if !exists('g:vscode')
+    packadd vim-startify
 
-    " Editing
-    Plug 'SirVer/ultisnips'
-    Plug 'AndrewRadev/splitjoin.vim'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'mattn/emmet-vim'
+    packadd vim-monokai-tasty
+    packadd vim-monokai
 
-    " LSP
-    Plug 'dense-analysis/ale'
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    packadd fzf
+    packadd fzf.vim
 
-    " Syntax
-    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-    Plug 'bfrg/vim-cpp-modern'              " C++
-    Plug 'HerringtonDarkholme/yats.vim'     " TypeScript
-    Plug 'MaxMEllon/vim-jsx-pretty'         " TSX
+    packadd vim-gutentags
+    packadd vista.vim
 
-    " Markdown
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+    packadd ultisnips
 
-    " Dev Icons (Must be loaded last)
-    Plug 'ryanoasis/vim-devicons'
-
+    packadd ale
+    packadd coc.nvim
 endif
-
-call plug#end()

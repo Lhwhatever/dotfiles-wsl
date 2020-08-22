@@ -36,6 +36,7 @@ function! s:draw_border(title, opts) abort
 endfunction
 
 function! CreateFloatingWindow(buffer, opts, title) abort
+    packadd vim-floaterm
     let border_buf = s:draw_border(a:title, a:opts)
     let winid = nvim_open_win(a:buffer, v:true, a:opts)
     let s:bw_cmd = 'bw ' . border_buf

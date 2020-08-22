@@ -49,7 +49,7 @@ function! s:fzf_project(fullscreen) abort
 endfunction
 
 function! s:rg_fzf(query, fullscreen, dir) abort
-    let command_fmt = printf('rg %s --column --line-number --no-heading --color=always --smart-case -e %%s -- %s || true', '-j1', a:dir)
+    let command_fmt = printf('rg --column --line-number --no-heading --color=always --smart-case -e %%s -- %s || true', a:dir)
     let initial_command = printf(command_fmt, shellescape(a:query))
     let reload_command = printf(command_fmt, '{q}')
     let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}

@@ -88,7 +88,9 @@ let g:which_key_leader_map.r = {
 
 let g:which_key_leader_map.R = ['<Plug>(coc-refactor)', 'open refactor window']
 
-call which_key#register('\', 'g:which_key_leader_map')
+if exists('which_key#register')
+    call which_key#register('\', 'g:which_key_leader_map')
+endif
 
 let g:which_key_easymotion_map = {
             \   'name': '+easymotion',
@@ -119,4 +121,6 @@ let g:which_key_easymotion_map = {
             \   '\': 'which_key_ignore',
             \ }
 
-call which_key#register('\\', 'g:which_key_easymotion_map')
+if exists('which_key#register')
+    call which_key#register('\\', 'g:which_key_easymotion_map')
+endif

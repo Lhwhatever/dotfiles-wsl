@@ -5,8 +5,8 @@ colorscheme monokai
 
 " Status Line (vim-airline)
 let g:airline_powerline_fonts = 1
-let g:airline_theme='monokai_tasty'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='monokai_tasty'
 
 " enable transparent background
 hi Normal guibg=NONE ctermbg=NONE
