@@ -1,0 +1,19 @@
+# ctags
+tags
+tags.lock
+tags.temp
+
+# vscode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# JetBrains
+.idea/
+
+# npm
+node_modules/
