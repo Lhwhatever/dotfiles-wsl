@@ -31,7 +31,6 @@ endpython
 endif
 
 " Go to subconfigs
-runtime! vimrcs/theme.vim
 runtime! vimrcs/startify.vim
 runtime! vimrcs/defx.vim
 runtime! vimrcs/which-key.vim
@@ -40,5 +39,6 @@ runtime! vimrcs/snips.vim
 runtime! vimrcs/language.vim
 runtime! vimrcs/maps.vim
 runtime! vimrcs/sandwich.vim
+runtime! vimrcs/theme.vim
 
 runtime! vimrcs/late.vim

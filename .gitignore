@@ -1,5 +1,6 @@
 nvim/.netrwhist
-nvim/autoload/**
+nvim/autoload/*
+!nvim/autoload/lightline/
 nvim/apt_pkg.so
 nvim/win32yank
 nvim/pack/

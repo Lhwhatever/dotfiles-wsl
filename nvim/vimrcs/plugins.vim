@@ -6,10 +6,9 @@ Pack 'machakann/vim-sandwich'
 
 " Motion
 Pack 'bkad/CamelCaseMotion'
-Pack 'rhysd/accelerated-jk'
-Pack 'terryma/vim-expand-region'
 
 " Search
+Pack 'easymotion/vim-easymotion'
 Pack 'haya14busa/incsearch.vim'
 Pack 'haya14busa/incsearch-fuzzy.vim'
 Pack 'haya14busa/incsearch-easymotion.vim'
@@ -27,6 +26,8 @@ Pack 't9md/vim-choosewin', { 'on': ['<Plug>(choosewin)', 'ChooseWinSwap', 'Choos
 Pack 'mhinz/vim-startify', { 'type': 'opt' }
 
 " Aesthetics
+Pack 'itchyny/lightline.vim', { 'type': 'opt' }
+Pack 'bagrat/vim-buffet', { 'type': 'opt' }
 Pack 'vim-airline/vim-airline', { 'type': 'opt' }
 Pack 'vim-airline/vim-airline-themes', { 'type': 'opt' }
 Pack 'edkolev/tmuxline.vim', { 'type': 'opt' }
@@ -47,13 +48,10 @@ Pack 'junegunn/fzf.vim', { 'type': 'opt' }
 
 " Git
 Pack 'tpope/vim-fugitive', { 'type': 'opt' }
-Pack 'airblade/vim-gitgutter', { 'type': 'opt' }
 
 " Tags
 Pack 'ludovicchabant/vim-gutentags', { 'type': 'opt' }
 Pack 'liuchengxu/vista.vim', { 'type': 'opt' }
-
-Pack 'easymotion/vim-easymotion'
 
 " Assistance
 Pack 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKeyVisual'] }
@@ -101,16 +99,13 @@ packloadall
 if !exists('g:vscode')
     packadd vim-startify
 
-    packadd vim-monokai-tasty
-    packadd vim-monokai
-
     packadd fzf
     packadd fzf.vim
 
     packadd vim-gutentags
     packadd vista.vim
 
-    packadd ultisnips
+    " packadd ultisnips
 
     packadd ale
     packadd coc.nvim
