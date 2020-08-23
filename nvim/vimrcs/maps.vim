@@ -6,7 +6,7 @@ nnoremap <silent> <Leader> :<C-u>packadd vim-which-key <bar> WhichKey '\'<CR>
 nnoremap <silent> <Plug>(easymotion-prefix) :<C-u>packadd vim-which-key <bar> WhichKey '\\'<CR>
 
 " Re-source vimrcs
-command! ReSourceRC exe printf('source %s/init.vim', stdpath('config'))
+command! -bar ReSourceRC exe printf('source %s/init.vim', stdpath('config'))
 nnoremap <silent> <leader>S :<C-u>ReSourceRC<CR>
 
 " Sandwich
@@ -105,6 +105,7 @@ nnoremap <silent> <Leader>N :<C-u>OpenThisInExplorer<CR>
 " Fuzzy finding
 nnoremap <silent> <Leader>ff :<C-u>FilesProject<CR>
 nnoremap <silent> <C-p> :<C-u>FilesProject<CR>
+nnoremap <silent> <C-p><C-p> :<C-u>FilesProject!<CR>
 nnoremap <silent> <Leader>F :<C-u>FilesProject!<CR>
 nnoremap <silent> <Leader>fr :<C-u>RgProject<CR>
 nnoremap <silent> <Leader>fR :<C-u>RgProject!<CR>
@@ -112,6 +113,7 @@ nnoremap <silent> <Leader>fb :<C-u>Buffers<CR>
 nnoremap <silent> <Leader>fB :<C-u>Buffers!<CR>
 nnoremap <silent> <Leader>bb :<C-u>Buffers<CR>
 nnoremap <silent> <Leader>B :<C-u>Buffers!<CR>
+nnoremap <silent> <C-p><C-b> :<C-u>Buffers<CR>
 inoremap <expr> <C-x><C-f> fzf#vim#complete#path('rg --files 2> /dev/null')
 inoremap <expr> <C-x><C-f> fzf#vim#complete#path('rg --files 2> /dev/null')
 

@@ -30,21 +30,25 @@ endfunction
 
 let s:fzf_project_src_cmd_fmt = has('win32') ?
             \ 'dir %s /a-d /s /b | findstr /V /R /C:"\..*\\\\" | findstr /V /I /R /C:"\\.*cache.*\\\\" | findstr /V /I /R /C:"\\node_modules\\\\"' :
-            \ 'find -L %s -type d \( -name ".*" -o -name "*cache*" -o -name "node_modules" \) -prune -o -type f -printf "%%P\n"'
+            \ 'fd -tf . "%s"'
 
-function! s:fzf_project(fullscreen) abort
-    let proj_dir = s:get_project_dir()
+let s:fzf_all_src_cmd_fmt = has('win32') ?
+            \ 'dir %s /a-d /s /b' :
+            \ 'fd -tf --no-ignore-vcs . "%s"'
+
+function! s:fzf_project(no_ignore_vcs) abort
+    let l:proj_dir = s:get_project_dir()
+    let l:fzf_cmd = a:no_ignore_vcs ? s:fzf_all_src_cmd_fmt : s:fzf_project_src_cmd_fmt 
     call fzf#vim#files(
-                \ proj_dir,
+                \ l:proj_dir,
                 \ fzf#vim#with_preview({
-                \   'source': systemlist(printf(s:fzf_project_src_cmd_fmt, proj_dir)),
+                \   'source': systemlist(printf(l:fzf_cmd, proj_dir)),
                 \   'options': [
                 \       '-m',
                 \       '--header=Project Files',
                 \       printf('--prompt=%s/', substitute(s:get_project_dir(), ' ', '\ ', 'g')),
                 \   ]
-                \ }),
-                \ a:fullscreen
+                \ })
                 \ )
 endfunction
 
