@@ -69,7 +69,7 @@ function! g:BuffetSetCustomColors()
     call s:add("BuffetActiveBuffer", s:grey, s:dark_charcoal, 'NONE')
     call s:add("BuffetModActiveBuffer", s:orange, s:dark_charcoal, 'NONE')
 
-    call s:add("BuffetBuffer", s:light_grey, s:light_charcoal, 'NONE')
+    call s:add("BuffetBuffer", s:dark_grey, s:light_charcoal, 'NONE')
     call s:add("BuffetModBuffer", s:orange, s:light_charcoal, 'NONE')
 
     call s:add("BuffetTrunc", s:light_grey, s:darker_grey, 'bold')
@@ -96,7 +96,7 @@ let g:tmuxline_theme = {
             \ 'y':    [ 250, 238 ],
             \ 'z':    [ 235, 148, 'bold' ],
             \ 'cwin': [ 148, 234 ],
-            \ 'win':  [ 250, 236 ],
+            \ 'win':  [  59, 236 ],
             \ }
 
 function! s:clear_backgrounds()
