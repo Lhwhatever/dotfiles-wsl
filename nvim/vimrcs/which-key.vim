@@ -25,7 +25,7 @@ let g:which_key_leader_map.f = {
             \   'l': [':Vista finder',  'find LSP symbols'],
             \ }
 
-let g:which_key_leader_map.F = [':FilesProject!', 'fzf project files (fullscreen)']
+let g:which_key_leader_map.F = [':FilesProject!', 'fzf project files (all files)']
 
 let g:which_key_leader_map.b = {
             \   'name': '+buffers',
@@ -35,7 +35,7 @@ let g:which_key_leader_map.b = {
 
 let g:which_key_leader_map.B = [':Buffers!', 'fzf buffers (fullscreen)']
 
-let g:which_key_leader_map['\'] = ['<Plug>(easymotion-prefix)', '+easymotion']
+let g:which_key_leader_map[" "] = ['<Plug>(easymotion-prefix)', '+easymotion']
 
 let g:which_key_leader_map.T = [':FloatermShow!', 'show all terminals']
 let g:which_key_leader_map.t = {
@@ -68,7 +68,7 @@ let g:which_key_leader_map.r = {
 let g:which_key_leader_map.R = ['<Plug>(coc-refactor)', 'open refactor window']
 
 if exists('which_key#register')
-    call which_key#register('\', 'g:which_key_leader_map')
+    call which_key#register(" ", 'g:which_key_leader_map')
 endif
 
 let g:which_key_easymotion_map = {
@@ -101,5 +101,5 @@ let g:which_key_easymotion_map = {
             \ }
 
 if exists('which_key#register')
-    call which_key#register('\\', 'g:which_key_easymotion_map')
+    call which_key#register("  ", 'g:which_key_easymotion_map')
 endif

@@ -1,9 +1,12 @@
+" Leader
+let mapleader = "\<Space>"
+
 " CamelCaseMotion
-let g:camelcasemotion_key = '<Space>'
+let g:camelcasemotion_key = ','
 
 " WhichKey
-nnoremap <silent> <Leader> :<C-u>packadd vim-which-key <bar> WhichKey '\'<CR>
-nnoremap <silent> <Plug>(easymotion-prefix) :<C-u>packadd vim-which-key <bar> WhichKey '\\'<CR>
+nnoremap <silent> <Leader> :<C-u>packadd vim-which-key <bar> WhichKey "\<Space>"<CR>
+nnoremap <silent> <Plug>(easymotion-prefix) :<C-u>packadd vim-which-key <bar> WhichKey "\<Space>\<Space>"<CR>
 
 " Re-source vimrcs
 command! -bar ReSourceRC exe printf('source %s/init.vim', stdpath('config'))
@@ -49,7 +52,7 @@ map <Plug>(easymotion-prefix)g$ <Plug>(easymotion-eol-k)
 map <Plug>(easymotion-prefix)gw <Plug>(easymotion-overwin-w)
 map <Plug>(easymotion-prefix)gg <Plug>(easymotion-overwin-line)
 map <Plug>(easymotion-prefix)<Space> <Plug>(easymotion-jumptoanywhere)
-nnoremap <silent> <C-l> :<C-u>noh<CR><C-l>
+nnoremap <silent> gl :<C-u>noh<CR><C-l>
 
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_startofline = 0
@@ -88,9 +91,9 @@ nnoremap <silent> <Leader>n :<C-u>OpenExplorer<CR>
 nnoremap <silent> <Leader>N :<C-u>OpenThisInExplorer<CR>
 
 " Fuzzy finding
-nnoremap <silent> <Leader>ff :<C-u>FilesProject<CR>
 nnoremap <silent> <C-p> :<C-u>FilesProject<CR>
-nnoremap <silent> <C-p><C-p> :<C-u>FilesProject!<CR>
+nnoremap <silent> <M-b> :<C-u>Buffers<CR>
+nnoremap <silent> <M-f> :<C-u>RgProject<CR>
 nnoremap <silent> <Leader>F :<C-u>FilesProject!<CR>
 nnoremap <silent> <Leader>fr :<C-u>RgProject<CR>
 nnoremap <silent> <Leader>fR :<C-u>RgProject!<CR>
@@ -98,7 +101,6 @@ nnoremap <silent> <Leader>fb :<C-u>Buffers<CR>
 nnoremap <silent> <Leader>fB :<C-u>Buffers!<CR>
 nnoremap <silent> <Leader>bb :<C-u>Buffers<CR>
 nnoremap <silent> <Leader>B :<C-u>Buffers!<CR>
-nnoremap <silent> <C-p><C-b> :<C-u>Buffers<CR>
 inoremap <expr> <C-x><C-f> fzf#vim#complete#path('rg --files 2> /dev/null')
 inoremap <expr> <C-x><C-f> fzf#vim#complete#path('rg --files 2> /dev/null')
 
