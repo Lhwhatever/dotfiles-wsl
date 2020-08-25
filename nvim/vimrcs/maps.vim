@@ -26,27 +26,12 @@ omap sa <Plug>(operator-sandwich-g@)
 nnoremap <silent> x "_dl
 nnoremap <silent> X "_dh
 nnoremap <silent> Y y$
-smap <silent> <C-c> <C-o>y
-imap <silent> <C-v> <C-r>"
 
 " Window commands
-nnoremap <silent> <Leader>wh <C-w>h
-nnoremap <silent> <Leader>wj <C-w>j
-nnoremap <silent> <Leader>wk <C-w>k
-nnoremap <silent> <Leader>wl <C-w>l
-nnoremap <silent> <Leader>ws :<C-u>split<CR>
-nnoremap <silent> <Leader>wv :<C-u>vsplit<CR>
-nnoremap <silent> <Leader>w+ :<C-u>resize +5<CR>
-nnoremap <silent> <Leader>w- :<C-u>resize -5<CR>
-nnoremap <silent> <Leader>w> :<C-u>vertical resize +5<CR>
-nnoremap <silent> <Leader>w< :<C-u>vertical resize -5<CR>
-nnoremap <silent> <Leader>w= <C-w>=
-nnoremap <silent> <Leader>wq <C-w>q
-nnoremap <silent> <Leader>wf <C-w>f
-nnoremap <silent> <Leader>wH <C-w>H
-nnoremap <silent> <Leader>wJ <C-w>J
-nnoremap <silent> <Leader>wK <C-w>K
-nnoremap <silent> <Leader>wL <C-w>L
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-l> <C-w>l
 
 " Incremental Search
 nmap / <Plug>(incsearch-easymotion-/)

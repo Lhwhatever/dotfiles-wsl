@@ -37,27 +37,6 @@ let g:which_key_leader_map.B = [':Buffers!', 'fzf buffers (fullscreen)']
 
 let g:which_key_leader_map['\'] = ['<Plug>(easymotion-prefix)', '+easymotion']
 
-let g:which_key_leader_map.w = {
-            \   'name': '+windows',
-            \   'h': ['<C-w>h',         'go left window'],
-            \   'j': ['<C-w>j',         'go window below'],
-            \   'k': ['<C-w>k',         'go window above'],
-            \   'l': ['<C-w>l',         'go right window'],
-            \   's': [':split',         'horizontal split'],
-            \   'v': [':vsplit',        'vertical split'],
-            \   '+': [':resize +5',     'heighten by 5'],
-            \   '-': [':resize -5',     'shorten by 5'],
-            \   '>': [':vert res +5',   'widen by 5'],
-            \   '<': [':vert res -5',   'narrow by 5'],
-            \   '=': ['<C-w>=',         'balance windows'],
-            \   'q': ['<C-w>q',         'quit window'],
-            \   'f': ['<C-w>f',         'split and goto file at cursor'],
-            \   'H': ['<C-w>H',         'as new top-level split (left)'],
-            \   'J': ['<C-w>J',         'as new top-level split (bottom)'],
-            \   'K': ['<C-w>K',         'as new top-level split (top)'],
-            \   'L': ['<C-w>L',         'as new top-level split (right)'],
-            \ }
-
 let g:which_key_leader_map.T = [':FloatermShow!', 'show all terminals']
 let g:which_key_leader_map.t = {
             \   'name': '+terminal',
