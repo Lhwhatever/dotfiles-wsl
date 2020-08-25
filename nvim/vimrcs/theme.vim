@@ -115,4 +115,6 @@ function! s:clear_backgrounds()
     hi! Folded guibg=NONE ctermbg=NONE
 endfunc
 
-call s:clear_backgrounds()
+augroup clear_bg
+    autocmd VimEnter * call s:clear_backgrounds()
+augroup END
