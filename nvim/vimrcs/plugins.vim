@@ -97,12 +97,10 @@ call plugpac#end()
 packloadall
 
 if !exists('g:vscode')
-    packadd vim-startify
-
     packadd fzf
     packadd fzf.vim
 
-    packadd vim-gutentags
+    " packadd vim-gutentags
     packadd vista.vim
 
     " packadd ultisnips

@@ -1,3 +1,10 @@
+call GetEnv()
+if g:env.head =~# 'VSCODE'
+    finish
+endif
+
+packadd vim-startify
+
 let g:startify_session_persistence = 1
 let g:startify_enable_special = 1
 
