@@ -87,13 +87,3 @@ Pack 'ryanoasis/vim-devicons', { 'type': 'opt' }
 call plugpac#end()
 
 packloadall
-
-if !exists('g:vscode')
-    " packadd vim-gutentags
-    packadd vista.vim
-
-    " packadd ultisnips
-
-    packadd ale
-    packadd coc.nvim
-endif

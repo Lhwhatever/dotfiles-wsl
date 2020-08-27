@@ -1,3 +1,8 @@
+call GetEnv()
+if g:env.head =~# 'VSCODE'
+    finish
+endif
+
 let g:floaterm_name_map = {
             \   'shell': '',
             \   'python': 'python3',
@@ -22,4 +27,12 @@ command! -bang FloatermList
             \   'sink': 'FloatermTry',
             \   'options': ['+m', '--header=Floaterms']
             \ }), <bang>0)
+
+nnoremap <silent> <Leader>tt :<C-u>FloatermTry shell<CR>
+nnoremap <silent> <Leader>tp :<C-u>FloatermTry python<CR>
+nnoremap <silent> <Leader>tr :<C-u>FloatermTry ranger<CR>
+nnoremap <silent> <Leader>tg :<C-u>FloatermTry lazygit<CR>
+nnoremap <silent> <Leader>tl :<C-u>FloatermList<CR>
+nnoremap <silent> <Leader>tL :<C-u>FloatermList!<CR>
+nnoremap <silent> <Leader>T :<C-u>FloatermShow!<CR>
 

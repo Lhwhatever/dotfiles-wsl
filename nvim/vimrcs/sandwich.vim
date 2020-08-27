@@ -214,3 +214,16 @@ augroup add_ft_recipes
     autocmd FileType python call sandwich#util#addlocal(sandwich_recipes_python)
     autocmd FileType javascript,typescript,javascriptreact,typescriptreact call sandwich#util#addlocal(sandwich_recipes_ecmascript)
 augroup END
+
+let g:operator_sandwich_no_default_key_mappings = 1
+let g:sandwich_no_default_key_mappings = 1
+nmap ds <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+xmap ds <Plug>(operator-sandwich-delete)
+nmap dss <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+nmap cs <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+xmap cs <Plug>(operator-sandwich-replace)
+nmap css <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+nmap sa <Plug>(operator-sandwich-add)
+xmap sa <Plug>(operator-sandwich-add)
+omap sa <Plug>(operator-sandwich-g@)
+

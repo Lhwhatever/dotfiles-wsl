@@ -21,3 +21,7 @@ let g:startify_session_before_save = [
             \ ]
 
 let g:startify_change_to_vcs_root = 1
+
+
+nnoremap <silent> <Leader>s :SLoad<CR>
+

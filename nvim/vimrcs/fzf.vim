@@ -3,6 +3,9 @@ if g:env.head =~# 'VSCODE'
     finish
 endif
 
+packadd fzf
+packadd fzf.vim
+
 let g:fzf_layout = { 'window': {
             \   'width': 0.8,
             \   'height': 0.8,
@@ -55,7 +58,22 @@ endfunction
 
 command! -bang FilesProject call s:fzf_project(<bang>0)
 
+nnoremap <silent> <C-p> :<C-u>FilesProject<CR>
+nnoremap <silent> <M-b> :<C-u>Buffers<CR>
+
+nnoremap <silent> <Leader>ff :<C-u>FilesProject<CR>
+nnoremap <silent> <Leader>F :<C-u>FilesProject!<CR>
+nnoremap <silent> <Leader>fb :<C-u>Buffers<CR>
+
+inoremap <expr> <C-x><C-f> fzf#vim#complete#path('rg --files 2> /dev/null')
+inoremap <expr> <C-x><C-f> fzf#vim#complete#path('rg --files 2> /dev/null')
+
 if executable('rg')
     command! -nargs=* -bang RgDefault call s:rg_fzf(<q-args>, <bang>0, '')
     command! -nargs=* -bang RgProject call s:rg_fzf(<q-args>, <bang>0, s:get_project_dir())
+
+    nnoremap <silent> <M-f> :<C-u>RgProject<CR>
+
+    nnoremap <silent> <Leader>fr :<C-u>RgProject<CR>
+    nnoremap <silent> <Leader>fR :<C-u>RgProject!<CR>
 endif

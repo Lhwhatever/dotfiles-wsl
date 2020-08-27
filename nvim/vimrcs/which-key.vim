@@ -107,3 +107,6 @@ let g:which_key_easymotion_map = {
 if exists('which_key#register')
     call which_key#register("  ", 'g:which_key_easymotion_map')
 endif
+
+nnoremap <silent> <Leader> :<C-u>packadd vim-which-key <bar> WhichKey "\<Space>"<CR>
+nnoremap <silent> <Plug>(easymotion-prefix) :<C-u>packadd vim-which-key <bar> WhichKey "\<Space>\<Space>"<CR>

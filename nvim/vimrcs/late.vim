@@ -1,4 +1,5 @@
-if !exists('g:vscode')
+call GetEnv()
+if g:env.head =~# 'VSCODE'
     packadd indentLine
 
     packadd vim-fugitive
