@@ -1,3 +1,8 @@
+call GetEnv()
+if g:env.g:env.head =~# 'VSCODE'
+    finish
+endif
+
 let g:which_key_use_floating_win = 1
 
 augroup whichkeyhidestatus
@@ -19,9 +24,8 @@ let g:which_key_leader_map.f = {
             \   'name': '+fzf',
             \   'f': [':FilesProject',  'project files'],
             \   'r': [':RgProject',     'ripgrep project'],
-            \   'R': [':RgProject!',    'ripgrep project (fullscreen)'],
+            \   'R': [':RgProject!',    'ripgrep project (all files)'],
             \   'b': [':Buffers',       'buffers'],
-            \   'B': [':Buffers!',      'buffers (fullscreen)'],
             \   'l': [':Vista finder',  'find LSP symbols'],
             \ }
 
