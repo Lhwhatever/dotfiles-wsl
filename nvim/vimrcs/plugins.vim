@@ -35,14 +35,6 @@ Pack 'patstockwell/vim-monokai-tasty', { 'type': 'opt' }
 Pack 'crusoexia/vim-monokai', { 'type': 'opt' }
 
 " Filesystem Navigation
-Pack 'Shougo/defx.nvim', { 
-            \ 'type': 'opt',
-            \ 'do': ':UpdateRemotePlugins',
-            \ }
-
-Pack 'kristijanhusak/defx-icons', { 'type': 'opt' }
-Pack 'kristijanhusak/defx-git', { 'type': 'opt' }
-
 Pack 'junegunn/fzf', { 'type': 'opt', 'do': { -> fzf#install() } }
 Pack 'junegunn/fzf.vim', { 'type': 'opt' }
 
