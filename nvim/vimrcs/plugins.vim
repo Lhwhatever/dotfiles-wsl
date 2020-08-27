@@ -97,9 +97,6 @@ call plugpac#end()
 packloadall
 
 if !exists('g:vscode')
-    packadd fzf
-    packadd fzf.vim
-
     " packadd vim-gutentags
     packadd vista.vim
 
