@@ -1,3 +1,8 @@
+call GetEnv()
+if g:env.head =~# 'VSCODE'
+    finish
+endif
+
 packadd vim-monokai-tasty
 packadd vim-monokai
 
@@ -6,11 +11,6 @@ packadd vim-monokai
 " available on Win10 2004.
 " Update: still not available.
 colorscheme monokai
-
-" Status Line (vim-airline)
-" let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline_theme='monokai_tasty'
 
 " Status Line (lightline.vim)
 function! CocCurrentFunction() abort
@@ -32,6 +32,18 @@ let g:lightline = {
             \ },
             \ 'separator': { 'left': "\uE0B0", 'right': "\uE0B2" },
             \ 'subseparator': { 'left': "\uE0B1", 'right': "\uE0B3" },
+            \ 'mode_map': {
+            \   'n':        'NOR',
+            \   'i':        'INS',
+            \   'v':        'VIS',
+            \   'V':        'V-L',
+            \   "\<C-v>":   'V-B',
+            \   'c':        'CMD',
+            \   's':        'SEL',
+            \   'S':        'S-L',
+            \   "\<C-s>":   'S-B',
+            \   't':        'TER',
+            \ }
             \ }
 
 function! s:refresh_lightline(...) abort
