@@ -3,6 +3,13 @@ if g:env.head =~# 'VSCODE'
     finish
 endif
 
+function! s:setup_which_key()
+    packadd vim-which-key
+
+    call which_key#register("\<Space>", 'g:which_key_leader_map')
+    call which_key#register("\<Space>\<Space>", 'g:which_key_easymotion_map')
+endfunc
+
 let g:which_key_use_floating_win = 1
 
 augroup whichkeyhidestatus
@@ -14,11 +21,8 @@ augroup END
 
 let g:which_key_leader_map = { 'name': '+leader' }
 
-let g:which_key_leader_map.n = [':OpenExplorer', 'toggle defx window']
-let g:which_key_leader_map.N = [':OpenThisInExplorer', 'toggle defx window (this file)']
-
 let g:which_key_leader_map.s = [':SLoad', 'load startify session']
-let g:which_key_leader_map.S = [':ReSourceRC', 're-source vimrcs']
+let g:which_key_leader_map.S = [':ReSourceRC', 'source vimrcs again']
 
 let g:which_key_leader_map.f = {
             \   'name': '+fzf',
@@ -39,7 +43,7 @@ let g:which_key_leader_map.b = {
 
 let g:which_key_leader_map.B = [':Buffers!', 'fzf buffers (fullscreen)']
 
-let g:which_key_leader_map[" "] = ['<Plug>(easymotion-prefix)', '+easymotion']
+let g:which_key_leader_map["\<Space>"] = ['<Plug>(easymotion-prefix)', '+easymotion']
 
 let g:which_key_leader_map.T = [':FloatermShow!', 'show all terminals']
 let g:which_key_leader_map.t = {
@@ -71,10 +75,6 @@ let g:which_key_leader_map.r = {
 
 let g:which_key_leader_map.R = ['<Plug>(coc-refactor)', 'open refactor window']
 
-if exists('which_key#register')
-    call which_key#register(" ", 'g:which_key_leader_map')
-endif
-
 let g:which_key_easymotion_map = {
             \   'name': '+easymotion',
             \   'w':  ['<Plug>(easymotion-w)',      'start of following words'],
@@ -100,13 +100,10 @@ let g:which_key_easymotion_map = {
             \   's':  ['<Plug>(easymotion-overwin-f2)', 'search 2 chars (overwin)'],
             \   'gw': ['<Plug>(easymotion-overwin-w)', 'start of words (overwin)'],
             \   'gg': ['<Plug>(easymotion-overwin-line)', 'lines (overwin)'],
-            \   '<Space>':  ['<Plug>(easymotion-jumptoanywhere)', 'camelCase/snake_case'],
+            \   "\<Space>":  ['<Plug>(easymotion-jumptoanywhere)', 'camelCase/snake_case'],
             \   '\': 'which_key_ignore',
             \ }
 
-if exists('which_key#register')
-    call which_key#register("  ", 'g:which_key_easymotion_map')
-endif
 
-nnoremap <silent> <Leader> :<C-u>packadd vim-which-key <bar> WhichKey "\<Space>"<CR>
-nnoremap <silent> <Plug>(easymotion-prefix) :<C-u>packadd vim-which-key <bar> WhichKey "\<Space>\<Space>"<CR>
+nnoremap <silent> <Leader> :<C-u>call <sid>setup_which_key() <bar> WhichKey "\<Space>"<CR>
+nnoremap <silent> <Plug>(easymotion-prefix) :<C-u>call <sid>setup_which_key() <bar> WhichKey "\<Space>\<Space>"<CR>
