@@ -27,6 +27,7 @@ endfunc
 " Go to subconfigs
 runtime! vimrcs/plugins.vim
 runtime! vimrcs/*.vim
+runtime! vimrcs/after/plugins.vim
 
 " Win32 settings
 " if has('win32')
