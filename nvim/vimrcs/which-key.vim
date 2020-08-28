@@ -1,5 +1,5 @@
 call GetEnv()
-if g:env.g:env.head =~# 'VSCODE'
+if g:env.head =~# 'VSCODE'
     finish
 endif
 
