@@ -19,7 +19,7 @@ function! s:try_open_floaterm(name) abort
 endfunction
 
 command! -nargs=? -complete=customlist,floaterm#cmdline#floaterm_names FloatermTry
-            \ call s:try_open_floaterm(<q-args>)
+            \ packadd vim-floaterm <bar> call s:try_open_floaterm(<q-args>)
 
 command! -bang FloatermList 
             \ call fzf#run(fzf#wrap({ 
