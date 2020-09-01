@@ -19,6 +19,9 @@ nnoremap <silent> <C-j> <C-w>j
 nnoremap <silent> <C-k> <C-w>k
 nnoremap <silent> <C-l> <C-w>l
 
+" Delete a buffer without closing the window
+nnoremap <silent> <leader>bd :<C-u>Bclose<CR>
+
 " Line navigation
 nnoremap <silent> <expr> j (v:count ? 'j' : 'gj')
 vnoremap <silent> <expr> j (v:count ? 'j' : 'gj')
