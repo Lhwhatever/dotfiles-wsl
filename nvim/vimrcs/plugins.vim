@@ -69,10 +69,6 @@ Pack 'rrethy/vim-hexokinase', { 'type': 'opt', 'do': 'make hexokinase' }
 
 Pack 'bfrg/vim-cpp-modern', { 'for': 'cpp' }
 
-Pack 'HerringtonDarkholme/yats.vim', { 
-            \ 'for': ['typescript', 'typescriptreact'],
-            \ }
-
 Pack 'MaxMEllon/vim-jsx-pretty', { 
             \ 'for': ['javascriptreact', 'typescriptreact', 'jsx', 'tsx'],
             \ }
