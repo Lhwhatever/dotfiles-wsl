@@ -60,22 +60,22 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 let g:coc_snippet_next = '<tab>'
-imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-j> <Plug>(coc-snippets-select)
+imap <silent> <C-l> <Plug>(coc-snippets-expand)
+vmap <silent> <C-j> <Plug>(coc-snippets-select)
 
 let g:coc_snippet_next = '<C-j>'
 let g:coc_snippet_prev = '<C-k>'
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
-nmap <Leader>lp :<C-u>CocList diagnostics<CR>
-nmap gd <Plug>(coc-definition)
-nmap <Leader>ld gd
-nmap gy <Plug>(coc-type-definition)
-nmap <Leader>lt gy
-nmap gi <Plug>(coc-implementation)
-nmap <Leader>li gi
-nmap gr <Plug>(coc-references)
-nmap <Leader>lr gr
+nmap <silent> <Leader>lp :<C-u>CocList diagnostics<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <Leader>ld gd
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> <Leader>lt gy
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> <Leader>li gi
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <Leader>lr gr
 
 " Documentation
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -132,6 +132,13 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 command! -nargs=0 Format call CocAction('format')
 command! -nargs=? Fold call CocAction('fold', <f-args>)
-command! -nargs=0 OrganizeImports call CocAction('runCommand', 'editor.action.organizeImport')
+command! -bar -bang -nargs=0 OrganizeImports call s:OrganizeImports(<bang>0)
 
+function! s:OrganizeImports(write) abort
+    call CocAction('runCommand', 'editor.action.organizeImport')
+
+    if a:write
+        write
+    endif
+endfunction
 
