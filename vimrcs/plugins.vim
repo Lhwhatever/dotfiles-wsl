@@ -14,7 +14,7 @@ Pack 'haya14busa/incsearch-fuzzy.vim'
 Pack 'haya14busa/incsearch-easymotion.vim'
 
 " Utility
-Pack 'Yggdroot/indentLine', { 'type': 'opt' }
+Pack 'nathanaelkane/vim-indent-guides', { 'type': 'opt' }
 
 " Window Management
 Pack 'rbgrouleff/bclose.vim', { 'on': 'Bclose' }
@@ -64,6 +64,7 @@ Pack 'mattn/emmet-vim', {
 Pack 'dense-analysis/ale', { 'type': 'opt' }
 Pack 'neoclide/coc.nvim', { 'type': 'opt', 'branch': 'release' }
 
+
 " Syntax
 Pack 'rrethy/vim-hexokinase', { 'type': 'opt', 'do': 'make hexokinase' }
 
@@ -77,6 +78,9 @@ Pack 'iamcco/markdown-preview.nvim', {
             \ 'for': 'markdown',
             \ 'do': 'cd app & yarn install',
             \ }
+
+Pack 'lervag/vimtex', { 'for': 'tex' }
+Pack 'KeitaNakamura/tex-conceal.vim', { 'for': 'tex' }
 
 Pack 'ryanoasis/vim-devicons', { 'type': 'opt' }
 

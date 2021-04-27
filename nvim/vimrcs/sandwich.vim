@@ -1,65 +1,3 @@
-let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
-
-let g:sandwich#recipes += [
-            \ { 
-            \   'buns': ['{ ', ' }'], 
-            \   'nesting': 1, 
-            \   'match_syntax': 1,
-            \   'action': ['add'],
-            \   'input': ['{'] 
-            \ },
-            \ { 
-            \   'buns': ['[ ', ' ]'],
-            \   'nesting': 1, 
-            \   'match_syntax': 1,
-            \   'action': ['add'],
-            \   'input': ['[']
-            \ },
-            \ { 
-            \   'buns': ['( ', ' )'],
-            \   'nesting': 1,
-            \   'match_syntax': 1,
-            \   'action': ['add'],
-            \   'input': ['('] 
-            \ },
-            \ { 
-            \   'buns': ['{\s*', '\s*}'],
-            \   'nesting': 1,
-            \   'regex': 1,
-            \   'match_syntax': 1,
-            \   'kind': ['delete', 'replace', 'textobj'],
-            \   'action': ['delete'],
-            \   'input': ['{'] 
-            \ },
-            \ { 
-            \   'buns': ['[\s*', '\s*]'],
-            \   'nesting': 1,
-            \   'regex': 1,
-            \   'match_syntax': 1,
-            \   'kind': ['delete', 'replace', 'textobj'],
-            \   'action': ['delete'],
-            \   'input': ['['] 
-            \ },
-            \ { 
-            \   'buns': ['(\s*', '\s*)'],
-            \   'nesting': 1,
-            \   'regex': 1,
-            \   'match_syntax': 1,
-            \   'kind': ['delete', 'replace', 'textobj'],
-            \   'action': ['delete'],
-            \   'input': ['('] 
-            \ },
-            \ { 
-            \   'buns': ['^', '$'],
-            \   'nesting': 0,
-            \   'match_syntax': 2,
-            \   'syntax': ['String'],
-            \   'kind': ['add', 'delete', 'textobj'],
-            \   'action': ['add', 'delete'],
-            \   'input': ['^$'] 
-            \ }
-            \ ]
-
 " Python
 let s:sandwich_recipes_python = [
             \ {
@@ -208,12 +146,6 @@ let sandwich_recipes_ecmascript = [
             \   'input': ['/g']
             \ },
             \ ]
-
-augroup add_ft_recipes
-    autocmd!
-    autocmd FileType python call sandwich#util#addlocal(sandwich_recipes_python)
-    autocmd FileType javascript,typescript,javascriptreact,typescriptreact call sandwich#util#addlocal(sandwich_recipes_ecmascript)
-augroup END
 
 let g:operator_sandwich_no_default_key_mappings = 1
 let g:sandwich_no_default_key_mappings = 1

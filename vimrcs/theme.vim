@@ -26,6 +26,9 @@ let g:lightline = {
             \ 'active': {
             \   'left': [ ['mode', 'paste'],
             \             [ 'cocstatus', 'readonly', 'filename', 'modified' ]],
+            \   'right': [ [ 'lineinfo' ],
+            \              [ 'percent' ],
+            \              [ 'filetype' ]],
             \ },
             \ 'component_function': {
             \   'cocstatus': 'coc#status',
