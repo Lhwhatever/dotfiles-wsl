@@ -65,7 +65,7 @@
     "schemes": [
         {
             "name": "Monokai",
-            "background": "#2d2a2e",
+            "background": "#32322c",
             "foreground": "#fcfcfa",
             "black": "#403E41",
             "red": "#FF6188",

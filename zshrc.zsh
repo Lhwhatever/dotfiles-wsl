@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [ -f ~/aliases.sh ] && source ~/aliases.sh
 
+source /home/lhwhatever/anaconda3/etc/profile.d/conda.sh
+
 # Vim keybindings
 bindkey -v
 

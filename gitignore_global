@@ -17,3 +17,6 @@ tags.temp
 
 # npm
 node_modules/
+
+# eslint
+.eslintcache
